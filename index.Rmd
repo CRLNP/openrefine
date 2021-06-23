@@ -1,6 +1,6 @@
 ---
 title: "OpenRefine"
-author: "Caroline Patenaude</br>Biblithèque des lettres et sciences humaines, Université de Montréal</br>caroline.patenaude@umontreal.ca"
+author: "Caroline Patenaude</br>Bibliothèque des lettres et sciences humaines, Université de Montréal</br>caroline.patenaude@umontreal.ca"
 date: "`r Sys.Date()`"
 output:
   rmdformats::robobook:
@@ -50,7 +50,7 @@ opts_knit$set(width=75)
 
 - Comprendre le fonctionnement du logiciel.
 - Importer et explorer un jeu de données. 
-- Manipuler et tranformer des données.
+- Manipuler et transformer des données.
 - S'initier à l'usage du langage GREL.
 </br>
 </br>
@@ -67,7 +67,7 @@ opts_knit$set(width=75)
 ## Des données bien ordonnées commencent par soi-même!
 
 
-- Le nettoyage de fichiers de données est une tâche souvent longue et ennnuyeuse mais incontournable avant toute analyse ou diffusion de données.
+- Le nettoyage de fichiers de données est une tâche souvent longue et ennuyeuse mais incontournable avant toute analyse ou diffusion de données.
 
 - L'ampleur de cette tâche dépendra de l'état des données et du type de logiciel qui sera ensuite utilisé à des fins d'analyse ou de visualisation (R, SPSS, Stata, Tableau, ArcGIS...)
 
@@ -122,11 +122,11 @@ Avant d'utiliser ses données dans le logiciel de son choix, le nettoyage de ses
 
 # 2. Pourquoi OpenRefine?
 
-- Plusieurs langages de programmation et outils d'analyse ou de gestion de données peuvent être utilisés mais OpenRefine a été créé spécifiquement pour faire le ménage!
+- Plusieurs langages de programmation et outils d'analyse ou de gestion de données peuvent être utilisés, mais OpenRefine a été créé spécifiquement pour faire le ménage!
 
 - Plus facile que R et plus efficace qu'Excel.
 
-- Permet de facilement identifier et de corriger en lot des données incomplètes, manquantes, erronnées, incohérentes, non pertinentes, mal formattés, qu'elles soient numériques ou textuelles => sauve temps et énergie.
+- Permet de facilement identifier et de corriger en lot des données incomplètes, manquantes, erronées, incohérentes, non pertinentes, mal formatés, qu'elles soient numériques ou textuelles => sauve temps et énergie.
 
 
 <center>   
@@ -141,7 +141,7 @@ Avant d'utiliser ses données dans le logiciel de son choix, le nettoyage de ses
 ### Fonctions spécialisées pour:
 
 - *Explorer* ses données sous tous ses angles (grâce à des filtres, tris, facettes, regroupements).   
-- *Nettoyer* : reprérer des erreurs, modifier le contenu des cellules...
+- *Nettoyer* : repérer des erreurs, modifier le contenu des cellules...
 - *Tranformer* : changer formats de ses variables, créer de nouvelles variables sur la base des colonnes présentes...
 - *Enrichir* : fusionner des fichiers, importer des données en ligne (API, URLs), réconciliation (Wikidata et [autres sources externes](https://github.com/OpenRefine/OpenRefine/wiki/Reconcilable-Data-Sources))...
 - *Automatiser* (réutiliser son historique de manipulations)
@@ -202,15 +202,15 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 
 - Multiplateformes: Windows, Mac, Linux.
 
-- Interface semblable à un tableur comme excel mais dont le fonctionnement s'apparente plus à une base de données (par exemple les traitements sont séparés des données, ie les formules ne sont pas enregistrées dans les cellules mais dans un script).
+- Interface semblable à un tableur comme Excel, mais dont le fonctionnement s'apparente plus à une base de données (par exemple les traitements sont séparés des données, ie les formules ne sont pas enregistrées dans les cellules mais dans un script).
 
-- Associe la facilité d'usage d'un logiciel comme excel à la la puissance d'outils de programmation et d'algorithmes.
+- Associe la facilité d'usage d'un logiciel comme Excel à la puissance d'outils de programmation et d'algorithmes.
 
 - Usage de l'**interface graphique** et/ou **scripts GREL** (*Google Refine Expression Language*): propose un ensemble de fonctions automatisées donc ne nécessite à la base aucune compétence en programmation ou analyse, mais l'usage du langage permet d'aller beaucoup plus loin.
 
 - Particulièrement puissant pour le nettoyage de table de données avec du contenu textuel.
 
-- **Reproductibilité**! Permet de garder un historique de toutes les manipulations effectuées sur ses données afin de les partager, de les réutilisées sur d'autres données...
+- **Reproductibilité**! Permet de garder un historique de toutes les manipulations effectuées sur ses données afin de les partager, de les réutiliser sur d'autres données...
 
 </br>
 
@@ -233,17 +233,17 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 - [Télécharger et dézipper](https://openrefine.org/download.html) le logiciel dans un dossier de son choix.
 
-- Créer en langage Java [donc nécessite l'installation de Java (64 bits de préférence)](https://www.java.com/en/download/).
+- Créé en langage Java [donc nécessite l'installation de Java (64 bits de préférence)](https://www.java.com/en/download/).
 
-- Préférable de définir Chrome ou Firefox comme navigateur par défaut (ne fonctionne pas dans IE).  
+- Navigateurs à privilégier: Chrome, Opera, Edge. Firefox peut poser problème (ne fonctionne pas dans IE).  
 
 - Le fonctionnement d'OpenRefine peut être un peu déroutant au départ car il n'y a pas d'installation en bonne et due forme comme pour un logiciel régulier.
 
-- Pour démarrer le logiciel, cliquer sur le fichier `` `openrefine.exe` `` ou `refine.bat`. Il est utile de faire un clic-droit sur le fichier .exe pour l'épingler dans sa barre de tâches (Sur Mac, déplacer l'icone OpenRefine dans le dossier d'applications et double cliquer sur celle-ci).
+- Pour démarrer le logiciel, cliquer sur le fichier `` `openrefine.exe` `` ou `refine.bat`. Il est utile de faire un clic-droit sur le fichier .exe pour l'épingler dans sa barre de tâches (sur Mac, déplacer l'icône OpenRefine dans le dossier d'applications et double cliquer sur celle-ci).
 
 - Une fenêtre de commande noire s'ouvrira et lancera l'ouverture d'un onglet dans le navigateur web.  
 
-- La fenêtre de commandes peut ensuite être ignoré mais NE PAS LA FERMER! Elle ne servira qu'à fermer la session de travail.  
+- La fenêtre de commandes peut ensuite être ignorée mais NE PAS LA FERMER! Elle ne servira qu'à fermer la session de travail.  
 
 - Si le navigateur ne s'ouvre pas automatiquement, saisir l'adresse http://127.0.0.1:3333/ ou http://localhost:3333 dans un onglet. 
 
@@ -261,9 +261,9 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 ## 3.1. Travail local
 
-- Repose donc sur deux composantes: un **seveur web local** et un **onglet de navigateur web** pointant vers l'adresse du serveur sur son poste.
+- Repose donc sur deux composantes: un **serveur web local** et un **onglet de navigateur web** pointant vers l'adresse du serveur sur son poste.
 
-- Le travail se fait dans un onglet de navigateur qui est une simple interface graphique pour interagir avec ce serveur local mais **les données ne sont pas sur le "nuage"**.
+- Le travail se fait dans un onglet de navigateur qui est une simple interface graphique pour interagir avec ce serveur local, mais **les données ne sont pas sur le "nuage"**.
 
 - Travail local donc pas d'environnement collaboratif. 
 
@@ -273,7 +273,7 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 - Le projet est enregistré en format OpenRefine automatiquement dans le dossier de travail chaque 5 minutes ([peut être modifié](https://docs.openrefine.org/manual/running#jvm-preferences)).
 
-- Le fichier de données une fois nettoyé pourra être exporté en différents formats et l'historique/syntaxe pourra être extrait en format JSON et enregistré dans un fichier txt.
+- Le fichier de données une fois nettoyé pourra être exporté en différents formats et l'historique/syntaxe pourra être extrait en format JSON et enregistré dans un fichier .txt.
 
 - Pour fermer la session de travail correctement, faire `Ctrl + c` dans fenêtre de commande (peut être nécessaire de le faire plus d'une fois) = enregistre le projet et ferme le serveur.
 
@@ -282,7 +282,7 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 <div class = "note">
 **À noter**  
 - Permet de travailler sur de gros fichiers mais la taille possible est tout de même limitée, la performance peut devenir problématique à plusieurs centaines de milliers de lignes (tout dépendant du nombre de colonnes) donc pas vraiment développé pour faire du big data.
-- Travaille avec 1GB de mémoire par défaut. À plus de 100 000 lignes, il peut être préférable d'[augmenter la mémoire](https://docs.openrefine.org/manual/installing#increasing-memory-allocation) de travail:  
+- Travaille avec 1Go de mémoire par défaut. À plus de 100 000 lignes, il peut être préférable d'[augmenter la mémoire](https://docs.openrefine.org/manual/installing#increasing-memory-allocation) de travail:  
   - Ouvrir le fichier refine.ini dans notepad et modifier la ligne REFINE_MEMORY = parametre.  
   - Par la suite lancer OR avec le fichier *refine.bat* et non *openrefine.exe *.   
 
@@ -318,9 +318,9 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 ## 3.3. Historique des projets
 
 - L'onglet `Ouvrir un projet` permet:
-  - d'accéder et d'ouvrir tous les projets enregistrés localement.
-  - d'éditer ses métadonnées.
-  - d'accéder au dossier de travail (défini par défaut) où OpenRefine stocke les archives des projets enregistrés par le biais du lien `Parcourir le dossier de l'espace de travail`.
+  - D'accéder et d'ouvrir tous les projets enregistrés localement.
+  - D'éditer ses métadonnées.
+  - D'accéder au dossier de travail (défini par défaut) où OpenRefine stocke les archives des projets enregistrés par le biais du lien `Parcourir le dossier de l'espace de travail`.
 
 <center>  
 
@@ -350,7 +350,7 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 <div class = "box1">
 - Créer un nouveau projet en important le fichier `Incidents métro.csv` disponible sur le site [Données ouvertes Montréal](https://donnees.montreal.ca/societe-de-transport-de-montreal/incidents-du-reseau-du-metro) (voir aussi le site de la STM [Indicateurs de performance reliés au service métro](http://www.stm.info/fr/a-propos/informations-entreprise-et-financieres/experience-client/indicateurs-de-performance-relies))
 
-- Explorer les options d'importation -> Porter une attention particulières aux options: `Supprimer les espaces` (8 -> cocher), 	`Utiliser le caractère	" pour fermer les cellules contenant les séparateurs de colonnes` (10 -> cocher ou non), `Analyser le texte des cellules comme nombres , dates…` (11 -> décocher)
+- Explorer les options d'importation -> Porter une attention particulière aux options: `Supprimer les espaces` (8 -> cocher), 	`Utiliser le caractère	" pour fermer les cellules contenant les séparateurs de colonnes` (10 -> cocher ou non), `Analyser le texte des cellules comme nombres , dates…` (11 -> décocher)
 
 - Changer le `Nom du projet` [2] et cliquer sur `Créer un projet` [4] - En cas de problème, il est possible de recommencer le processus [1].
 </div>
@@ -365,7 +365,7 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 - L'interface est similaire à Excel mais on ne peut voir l'ensemble des lignes, la "logique" d'OpenRefine repose sur le travail en **colonnes**.
 
-- OpenRefine propose deux vues des données: `lignes` et `entrées.` Les données sont généralement présentées en mode `lignes`, c'est à dire chaque ligne représente une observation. Le mode `entrées` permet d'associer plusieurs lignes à une observation.
+- OpenRefine propose deux vues des données: `lignes` et `entrées.` Les données sont généralement présentées en mode `lignes`, c'est-à-dire chaque ligne représente une observation. Le mode `entrées` permet d'associer plusieurs lignes à une observation.
 
 - Il est donc possible de modifier la structure du fichier pour que plusieurs lignes soient associées à un seul cas en se basant sur la colonne clé (**seule la ligne originale sera numérotée**), mais doit se faire avec précautions. Pour les logiciels d'analyse, le format *tidy* (`lignes`) est à privilégier.
 
@@ -375,7 +375,7 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 </center>  
 
-1. Lien sous l'icône renvoit vers la page d'accueil/importation.
+1. Lien sous l'icône renvoi vers la page d'accueil/importation.
 2. Renommer le nom de son projet en tout temps.
 3. Permalien qui permet de revenir à une vue précise (affichage, tri, facettes...) du projet.
 4. Nombre de lignes/observations du fichier.
@@ -393,7 +393,7 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 ## 5.1. L'édition de cellules
 
-- Il est possible d'éditer manuellement le contenu de cellules individuelles en se placant sur chacune et en cliquant `edit`, mais OpenRefine privilégie le **travail en lot par colonnes** pour filtrer, trier, transformer.
+- Il est possible d'éditer manuellement le contenu de cellules individuelles en se plaçant sur chacune et en cliquant `edit`, mais OpenRefine privilégie le **travail en lot par colonnes** pour filtrer, trier, transformer.
 
 - L'édition directe peut s'appliquer individuellement ou sur toutes les cellules avec la même valeur dans cette colonne.
 
@@ -447,7 +447,7 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 - Selon les besoins, les dates peuvent être traitées sous forme de `texte`, de `nombre` ou `date` (le format date est surtout nécessaire pour les calculs de dates).
 - Le format date repose sur une série d'outils et de  standards pour reconnaitre et convertir les valeurs originales en date. 
-- Pour qu'une cellule soit reconnu comme date, elle sera transformée au format *ISO-8601-compliant*.
+- Pour qu'une cellule soit reconnue comme date, elle sera transformée au format *ISO-8601-compliant*.
 - Possible de modifier ce format pour qu'il soit plus facilement lisible à l'exportation.
 
 </br>
@@ -469,9 +469,9 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 </br>
 
 <div class = "note">
-- À l'importation d'un fichier, chaque cellule se vera attribuer un format. 
+- À l'importation d'un fichier, chaque cellule se verra attribuer un format. 
 - Par défaut, le contenu des cellules est de format chaînes.  
-- Les cellules étant reconnu comme numérique et date seront de couleur verte.  
+- Le contenu des cellules reconnu comme numérique et date sera de couleur verte.  
 - Le format peut être modifié de différentes façons: Bouton `edit`, `Transformations courantes`, Fenêtre GREL.  
 - Ce format aura un impact sur les actions possibles.  
 - Le changement de format par édition directe d'une cellule est une opération distincte de la transformation du contenu. La première opération arrive parfois à changer des formats que la transformation ne peut faire.
@@ -500,7 +500,7 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 **La gestion des lignes:**
 
-- La sélection de lignes peut se faire par le biais de filtres, facettes et autres manipulations personnalitées.  
+- La sélection de lignes peut se faire par le biais de filtres, facettes et autres manipulations personnalisées.  
 - Il est aussi possible de marquer/étoiler des lignes en lot ou individuellement puis de créer une facette sur la colonne `Toutes`.  
 - On peut ensuite supprimer les lignes filtrées: `Toutes -> Éditer les lignes -> Supprimer les lignes correspondantes`.  
 
@@ -542,7 +542,7 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 - L'édition directe dans les cellules apparait dans l'historique mais ne peut être exportée.  
 
-- Facettes et filtres s'enregistrent grace au `permalien`.  
+- Facettes et filtres s'enregistrent grâce au `permalien`.  
 
 </br>
 
@@ -566,7 +566,7 @@ Open Refine permet de travailler de **deux façons**:
 
 ## 6.1. Fonctions automatisées:
 
-- Le menu et l'ensemble de ses fonctions automatisées apparait en cliquant sur la flèche de l'intitulé de chaque colonne.
+- Le menu et l'ensemble de ses fonctions automatisées apparaissent en cliquant sur la flèche de l'intitulé de chaque colonne.
 
 - Les fonctions disponibles sous le menu de la première colonne `Toutes` se distinguent des autres puisqu'elles permettent d'appliquer des fonctions à l'ensemble des colonnes du fichier: Marquer, étoiler, supprimer, masquer...
 
@@ -598,13 +598,13 @@ Open Refine permet de travailler de **deux façons**:
 
 </br>
 
-GREL - Expressions similaires aux formules excel mais qui s'appliquent aux colonnes, non aux cellules, et qui ne sont pas stoquées à même les données mais dans un script.  
+GREL - Expressions similaires aux formules excel mais qui s'appliquent aux colonnes, non aux cellules, et qui ne sont pas stockées à même les données mais dans un script.  
 
 </br>
 
 ### Le langage GREL peut s'utiliser de différentes façons:  
 
-- En créant des facettes personnalisées : `Facette -> Facette textuelle personnalisé`.  
+- En créant des facettes personnalisées : `Facette -> Facette textuelle personnalisée`.  
 
 - En transformant une colonne: `Éditer les cellules -> transformer` (aussi sous `Toutes -> Transformer`).  
 
@@ -636,7 +636,7 @@ GREL - Expressions similaires aux formules excel mais qui s'appliquent aux colon
 
 <div class = "box1">
 - Trier les valeurs de la colonne `Jour calendaire` en `date antéchronologique`.  
-- Quelle est la dernière date d'incident enregisrée dans le fichier ?  
+- Quelle est la dernière date d'incident enregistrée dans le fichier ?  
 - Supprimer le tri.  
 </div>
 </br>
@@ -655,7 +655,7 @@ GREL - Expressions similaires aux formules excel mais qui s'appliquent aux colon
 
 ## 6.4. Filtrer le texte
 
-- La fonction `Filtrer le texte` permet de chercher une ou des chaînes de caractères dans une ou plusieurs variables.  
+- La fonction `Filtrer le texte` permet de chercher une ou des chaines de caractères dans une ou plusieurs variables.  
 - Permet de rechercher des chaines de caractères dans une colonne et de combiner des filtres appliqués sur plusieurs colonnes pour raffiner la recherche.  
 - Fonction plus expéditive que les facettes quand on ne veut que chercher une chaine de caractères.  
 - L'affichage des lignes se limitera au nombre de cas correspondants aux critères de recherche inscrits dans les boites de filtres.  
@@ -667,7 +667,7 @@ GREL - Expressions similaires aux formules excel mais qui s'appliquent aux colon
 
 <div class = "box1">
 - Filtrer le texte sur la colonne *Code de lieu*: "berri"  
-- Filtrer le texte sur la colonne *Heure de l'évenement*: "12"  
+- Filtrer le texte sur la colonne *Heure de l'événement*: "12"  
 - Explorer les résultats  
 - Comment s'assurer d'avoir seulement les cas survenus entre 12h et 13h? Combien de lignes correspondent à ces conditions? 
 - Tout supprimer les filtres.
@@ -691,7 +691,7 @@ GREL - Expressions similaires aux formules excel mais qui s'appliquent aux colon
 
 - N'affectent pas directement les données, seulement la présentation.  
 
-- À la base, une facette correspond à la liste des valeurs possibles d'une variable  (et de leur occurence) présentée selon le format (chaine, numérique, date).  
+- À la base, une facette correspond à la liste des valeurs possibles d'une variable  (et de leur occurrence) présentée selon le format (chaine, numérique, date).  
 
 - Permettent une exploration et manipulation des valeurs possibles et de leurs cas correspondants plus élaborées que les filtres.  
 
@@ -746,9 +746,9 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
   - 2000 valeurs maximum par défaut mais peut être modifié dans les préférences. Si les valeurs sont trop nombreuses, elles ne seront pas listées (un filtre pourrait être utilisé). 
   
 - Permettent de combiner différents filtres en sélectionnant différentes valeurs d'une ou plusieurs variables (et leurs cas correspondants).  
-  - Cliquer `inclure` ou `exlure` pour sélectionner ou supprimer des choix multiples **[12]**.  
+  - Cliquer `inclure` ou `exclure` pour sélectionner ou supprimer des choix multiples **[12]**.  
   - Une fois la sélection faite, l'option `inverser` permet de sélectionner tout SAUF la sélection **[11]**.  
-  - Peuvent être triées selon le nom ou le compte (nombre d'occurence).  
+  - Peuvent être triées selon le nom ou le compte (nombre d'occurrence).  
 - Permettent **d’éditer les valeurs** (contenu de chaque cellule correspondante) **[13]**.  
 
 </br>
@@ -794,7 +794,7 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 
 - Quel est le *symptome* le plus fréquent? Sélectionner cette valeur.  
 - Sur quelle *Ligne* ce *symptome* s'est produit le plus souvent? Sélectionner cette valeur.  
-- Ces évenements ont-ils nécessité une *évacuation*?  
+- Ces événements ont-ils nécessité une *évacuation*?  
 
 **Éditer**  
 - Éditer la variable *évacuation* de façon à ce qu'il n'y ait que **deux valeurs** possibles: Oui et Non.  
@@ -810,7 +810,7 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 
 - chaque suggestion doit être approuvée individuellement pour que les modifications s'appliquent (les regroupements proposés ne sont pas nécessairement pertinents).
 
-- OpenRefine propose des *clusters* selon différentes méthodes plus ou moins élaborées (*Proche voisin* prend plus de mémoire) qui permettent de regrouper les valeurs similaires et proposent des matchs possibles (*fuzzy matching*): par exemple *empreinte* est plus conservateur (distingue casse, espaces, ordre, répétion, ponctuation...), *ngram* est plus flexible (même caractères), *Metaphone3* est le plus "libéral" (même prononciation).
+- OpenRefine propose des *clusters* selon différentes méthodes plus ou moins élaborées (*Proche voisin* prend plus de mémoire) qui permettent de regrouper les valeurs similaires et proposent des matchs possibles (*fuzzy matching*): par exemple *empreinte* est plus conservateur (distingue casse, espaces, ordre, répétition, ponctuation...), *ngram* est plus flexible (mêmes caractères), *Metaphone3* est le plus "libéral" (même prononciation).
 
 ## Exercice
 
@@ -862,8 +862,8 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 </br>
 
 #### Deux formats de notation:  
-- imbriquée: (trim(toLowercase(value)).    
-- **séquentielle**: value.toLowercase().trim() (plus facile à lire).    
+- Imbriquée: (trim(toLowercase(value)).    
+- **Séquentielle**: value.toLowercase().trim() (plus facile à lire).    
 
 </br>
 
@@ -1078,7 +1078,7 @@ Transformer la variable *Ligne*
 
 <div class = "box2">
 Diviser par les longueurs de champs la colonne `Numéro d'incident` pour en créer deux nouvelles:  
-  1. Une colonne contenant le premier catactère indiquant le type d'incident, soit T (train) ou S (service).  
+  1. Une colonne contenant le premier caractère indiquant le type d'incident, soit T (train) ou S (service).  
   2. Une colonne contenant l'ensemble des caractères numériques indiquant le numéro d'incident.  
 </div>
 <div class = "box1">
@@ -1135,7 +1135,7 @@ Nous souhaitons calculer la durée des incidents. Pour ce faire nous créerons d
 </br>
 
 <div class = "note">
-Lorsque l'on fusionne des colonnes, il faut porter une attention particulière au séparateur choisi. Ne pas utiliser un caractère qui pourrait faire parti du contenu (ex: ,) ou qui servira à diviser les colonnes (.csv)
+Lorsque l'on fusionne des colonnes, il faut porter une attention particulière au séparateur choisi. Ne pas utiliser un caractère qui pourrait faire partie du contenu (ex: ,) ou qui servira à diviser les colonnes (.csv)
 </div>
 
 </br>
@@ -1203,7 +1203,7 @@ Calculer la durée de l'incident
 - L'usage de GREL permet des manipulations de données beaucoup plus avancées que l'utilisation des fonctions automatisées, mais OpenRefine permet en plus de combiner l'utilisation des expressions régulières avec GREL pour en augmenter la puissance. 
 - Les expressions régulières permettent, à partir d'une syntaxe spécifique, d'identifier des patterns dans un contenu.  
 - Lorsqu'utilisées avec GREL, ces expressions permettent donc d'identifier et d'extraire des contenus très précis pour ensuite les manipuler selon les besoins.  
-- Elles peuvent être utilisés à différents endroits dans OpenRefine et doivent toujours être entourées de `/ /`: filtres, facettes, fenêtre GREL.
+- Elles peuvent être utilisées à différents endroits dans OpenRefine et doivent toujours être entourées de `/ /`: filtres, facettes, fenêtre GREL.
 - Certaines expressions peuvent s'écrire en GREL avec ou sans regex.  
 
 </br>
@@ -1273,7 +1273,7 @@ Avec regex:
 ## Exercice: transposer un tableau d'indicateurs du WDI
 </br>
 
-**Fichier original téléchargé de la [Banque mondiale](https://databank.banquemondiale.org/reports.aspx?source=world-development-indicators) en format .csv composé de 5 pays et 4 indicateurs à l'horizontal et 3 années à la verticale**  
+**Fichier original téléchargé de la [Banque mondiale](https://databank.banquemondiale.org/reports.aspx?source=world-development-indicators) en format .csv composé de 5 pays et 4 indicateurs à l'horizontale et 3 années à la verticale**  
 
 ![](images/OR-transpose1.jpg)
 
@@ -1326,8 +1326,8 @@ Avec regex:
 - Fonction à utiliser lorsque l'on est prêt à exporter son fichier en différents formats pour travailler dans un autre logiciel (.csv, .xls...)
 - OR sauvegarde automatiquement les fichiers sous forme d'archives de projet dans un dossier sur le poste de travail auxquelles on peut accéder en cliquant sur `Ouvrir un projet` sur la page principale.
 - L'outil `Exporteur tabulaire personnalisé` est très utile pour paramétrer l'exportation (sélection de colonnes, format de dates, format de fichier...)
-- Fermer l'onglet ne ferme pas le serveur qui continuera à rouler en arrière plan.
-- Aller à la fenêtre noire du terminal et utiliser les touches CTRL + C jusqu'à ce qu'elle se frme d'elle-même (il est parfois nécessaire de répéter à plus d'une reprise). Le fichier sera enregistré une dernière fois et le logiciel sera  maintenant bel et bien fermé.
+- Fermer l'onglet ne ferme pas le serveur qui continuera à rouler en arrière-plan.
+- Aller à la fenêtre noire du terminal et utiliser les touches CTRL + C jusqu'à ce qu'elle se ferme d'elle-même (il est parfois nécessaire de répéter à plus d'une reprise). Le fichier sera enregistré une dernière fois et le logiciel sera  maintenant bel et bien fermé.
 
 </br>
 
@@ -1353,7 +1353,7 @@ Extraire les caractères à partir de 5
 </br>
 
 <div class = "box2">
-#### Savoir si une condition est Vraie ou fausse?
+#### Savoir si une condition est vraie ou fausse?
 </div>
 <div class = "box1">
 Est-ce que le contenu des valeurs correspond à "2019-01-01"  
@@ -1419,7 +1419,7 @@ Diviser après les 3 premiers caractères et conserve le premier élément
 
 - value.splitByLengths(3)[0] 
 
-Diviser selon le type de caratères et retenir le deuxième élément  
+Diviser selon le type de caractères et retenir le deuxième élément  
 
 - value.splitByCharType()[1]
 
@@ -1453,7 +1453,7 @@ OU
 #### Ajouter un zéro pour avoir un nombre de caractères précis
 </div>
 <div class = "box1">
-Ajouter un zéro devant le contenu si donne une chaîne de 0 à 2 caractères  
+Ajouter un zéro devant le contenu si donne une chaine de 0 à 2 caractères  
 
 - "0"[0,2-length(value)] + value
 </div>
@@ -1612,7 +1612,7 @@ Extraire seulement une partie d'une date
 
 # 15. Ressources
 
-- [Site et décumentation officiels](https://openrefine.org/)
+- [Site et documentation officiels](https://openrefine.org/)
 
 - John Little, 2018, [Cleaning Data with OpenRefine](https://libjohn.github.io/openrefine/index.html)  
 
@@ -1634,7 +1634,7 @@ Extraire seulement une partie d'une date
 
 - [Library Carpentry: OpenRefine](https://librarycarpentry.org/lc-open-refine/01-introduction/index.html)
 
-- [Grateful Data](https://github.com/scottythered/gratefuldata/wiki),
+- [Grateful Data](https://github.com/scottythered/gratefuldata/wiki)  
 
 - [GREL Recipes](https://github.com/OpenRefine/OpenRefine/wiki/Recipes)
 
