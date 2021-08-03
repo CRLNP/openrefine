@@ -336,6 +336,10 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 - Pour ouvrir un fichier à partir de son poste, cliquer sur `Créer un projet` - > `Cet ordinateur` - > `sélectionner fichiers` sur son  poste -> `Suivant`.  
 
+- Pour ouvrir le fichier à partir de son emplacement sur Github: https://github.com/CRLNP/openrefine 
+  - Cliquer sur le fichier *Incidents métro-mtl.csv* -> Cliquer sur le bouton RAW -> copier l'adresse du navigateur.
+  - Dans OpenRefine, Créer un projet -> Adresses web (URLs) -> coller le lien.
+
 - Une fenêtre s'ouvre ensuite pour permettre de pré-visualiser son jeu de données et de modifier, si nécessaire, les options d'importation en fonction des caractéristiques du fichier de données: modification du format de fichier s'il n'a pas été identifié correctement (5), l'encodage des caractères [UTF-8] (6), le traitement des entêtes et premières lignes (9)...
 
 </br>
@@ -1300,7 +1304,7 @@ La syntaxe est composée d'éléments permettant de  cibler des caractères pré
 ***
 
 
-### Exercice: diviser les éléments de références bibliographiques en format APA
+### Exercice: Manipuler les éléments de références bibliographiques
 
 ![](images/OR36.jpg)
 
@@ -1323,6 +1327,7 @@ La syntaxe est composée d'éléments permettant de  cibler des caractères pré
 7. Examiner l'impact de ces deux commandes **GREL + regex**. Qu'est-ce qui se passe?
 
 </br>
+**Éditer les cellules -> Transformer: **
 
 > `value.find(/\(.*?\)/)`  
 
@@ -1352,6 +1357,10 @@ Avec regex:
 
 **Fichier original téléchargé de la [Banque mondiale](https://databank.banquemondiale.org/reports.aspx?source=world-development-indicators) en format .csv composé de 5 pays et 4 indicateurs à l'horizontale et 3 années à la verticale**  
 
+- Pour ouvrir le fichier à partir de son emplacement sur Github: https://github.com/CRLNP/openrefine 
+  - Cliquer sur le fichier *WDI_Data_Extract.csv* -> Cliquer sur le bouton RAW -> copier l'adresse du navigateur.
+  - Dans OpenRefine, Créer un projet -> Adresses web (URLs) -> coller le lien.
+  
 ![](images/OR-transpose1.jpg)
 
 </br>
