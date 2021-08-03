@@ -40,7 +40,6 @@ opts_knit$set(width=75)
 
 ***
 
-</br>
 
 # Objectifs
 
@@ -51,8 +50,7 @@ opts_knit$set(width=75)
 - Comprendre le fonctionnement du logiciel.
 - Importer et explorer un jeu de données. 
 - Manipuler et transformer des données.
-- S'initier à l'usage du langage GREL.
-</br>
+- S'initier à l'usage du langage GREL et aux expressions régulières.
 </br>
 </br>
 </br>
@@ -667,7 +665,7 @@ GREL - Expressions similaires aux formules excel mais qui s'appliquent aux colon
 
 <div class = "box1">
 - Filtrer le texte sur la colonne *Code de lieu*: "berri"  
-- Filtrer le texte sur la colonne *Heure de l'événement*: "12"  
+- Filtrer le texte sur la colonne *Heure de l'incident*: "12"  
 - Explorer les résultats  
 - Comment s'assurer d'avoir seulement les cas survenus entre 12h et 13h? Combien de lignes correspondent à ces conditions? 
 - Tout supprimer les filtres.
@@ -893,8 +891,8 @@ Par exemple:
 - Chaque caractère composant une valeur est ordonné dans un index **à partir de 0** (1er élément) et peut être ciblé grâce aux `[ ]`.
 - De la même façon, chaque élément d'un *array* est ordonné dans un index **à partir de 0** (1er élément) et peut être ciblé grâce aux `[ ]`.  
 
-> `value.split('(')[1]` -> Montréal (Québec) = ?  
-> `value.split('(')[1].split(')')[0]` -> Montréal (Québec) = ?  
+> `value.split("(")[1]` -> Montréal (Québec) = ?  
+> `value.split("(")[1].split(")")[0]` -> Montréal (Québec) = ?  
 
 </br>
 
@@ -903,14 +901,22 @@ Par exemple:
 
 </br>
 
+Éditer les cellules -> Transformer -> `value.split("; ").sort().join("; ")` 
 
 ![](images/OR26.jpg)
+
+- split(): divise la cellule en éléments distincts sur la base du séparateur ;
+- sort(): tri les éléments
+- join(): les joints avec le séparateur ;
 
 </br>
 
 Éditer les cellules -> Transformer -> `value.split("; ").slice(1).join("; ")` 
 
 ![](images/OR27.jpg)
+
+- Ici la fonction `slice()` conserve les éléments à partir de l'élément en position 1 donc supprime le 0. 
+
 
 </br>
 
@@ -1210,17 +1216,88 @@ Calculer la durée de l'incident
 
 ![](images/OR33.jpg)
 
-</br>
 
 - Mais certaines fonctions (comme `match`) n'acceptent que ces expressions.  
 </br>
+
+<div class = "note">
+
+Les expressions régulières peuvent être utilisées avec plusieurs autres langages dont [R](https://towardsdatascience.com/a-gentle-introduction-to-regular-expressions-with-r-df5e897ca432) et [Python](https://docs.python.org/3/howto/regex.html) et dans des logiciels qui n'ont rien à voir avec les statistiques comme [OpenOffice](https://wiki.openoffice.org/wiki/Documentation/How_Tos/Regular_Expressions_in_Writer).
 
 Pour en savoir plus:  
 - https://github.com/OpenRefine/OpenRefine/wiki/Understanding-Regular-Expressions  
 - https://regex101.com/  
 
+</div>
+
 </br>
 
+***
+
+
+La syntaxe est composée d'éléments permettant de  cibler des caractères précis et de définir leur emplacement et leur occurence.
+
+#### La syntaxe de base: 
+
++-------------------------------------------------------+------------------------------------------------+
+| TYPES DE CARACTÈRES                                   | QUANTIFICATEURS ET EMPLACEMENT                 | 
++=======================================================+================================================+
+| `.` : N’importe quoi                                  | `+` : 1 ou plus                                 |  
++-------------------------------------------------------+------------------------------------------------+
+| `\w` : n'importe quel mot, chiffre ou _    (`\W` : sauf)                       | `*` : 0 ou plus                                 |    
++-------------------------------------------------------+------------------------------------------------+
+| `\d` : Chiffres      (`\D` : sauf)                    | `?` : 0 ou un                                   |   
++-------------------------------------------------------+------------------------------------------------+
+| `\s` : Espaces         (`\S` : sauf)                  | `{2}` : Nombre exact                            | 
++-------------------------------------------------------+-------------------------------------------------+
+| `[A-Z]` : Majuscules     (`[^A-Z]` : sauf)            | `{,4}` : Entre 0 et 4 incl.                     |                 
++-------------------------------------------------------+-------------------------------------------------+
+| `[a-z]` : Minuscules      (`[^a-z]` : sauf)           | `{4,}` : 4 ou plus                              | 
++-------------------------------------------------------+-------------------------------------------------+
+| `[abd;]` : les lettres a, b, c, d et le ;             | `{1;3}` : 1 OU 3                                 | 
++-------------------------------------------------------+--------------------------------------------------+
+| `abcd` : une ou plusieurs lettres exactes             | `{1,3}` : Entre 1 et 3 incl.                     | 
++-------------------------------------------------------+--------------------------------------------------+
+| `|` : Ou                                               | `^` : Début d'une ligne                | 
++-------------------------------------------------------+--------------------------------------------------+
+| `()` : Grouper un contenu et le garder en mémoire      | `$` : Fin d'une ligne ou rappeller un groupe    |
++-------------------------------------------------------+--------------------------------------------------+
+|  `\` : Chercher un caractère spécial littéralement    | Sans quantificateur, l'occurence est de 1       |
++-------------------------------------------------------+--------------------------------------------------+
+
+##### Par exemple, je cherche un contenu correspondant au motif:  
+
+`^\d{4} +[A-Z]\.`    
+   
+- débute par 4 chiffres   
+- suivi d'un espace ou plus   
+- suivi d'une lettre majuscule avec un point   
+
+
+##### Autres exemples avec la syntaxe OpenRefine:
+
+- `value.find(/[Cc]aroline/)`: Caroline et caroline
+
+- `value.find(/ca+roline/)`: caroline et caaaaroline
+
+- `value.find(/ca*roline/)`: caroline, caaaroline et croline
+
+- `value.find(/ca?roline/)`: caroline et croline mais pas caaaroline
+
+- `value.find(/ca{4}roline/)`: caaaaroline
+
+- `value.find(/^Carol\b/)`: Carol en début d'expression, mais pas Caroline (\b = "boundary")
+
+- `value.find(/c[a-z]{6}e/)`: c + 6 minuscules + e
+
+- `value.find(/C[a-zA-Z0-9]{6}e/)`: C + 6 minuscules, majuscules ou chiffres + e
+
+- `value.find(/C\w{6}e/)`: C + [A-Za-z0-9_] + e
+
+- `value.find(/C.{6}e/)`: C + 6 n'importe quoi + e
+
+
+***
 
 
 ### Exercice: diviser les éléments de références bibliographiques en format APA
@@ -1233,8 +1310,8 @@ Pour en savoir plus:
 3. Dans OpenRefine, cliquer sur le petit logo en haut à gauche -> `Créer un projet` -> `Presse-papier`: Coller les deux références en  ajoutant un séparateur **";"** à la fin de la première -> Suivant.       
 
 4. Modifier les options: 
-  - Les colonnes sont séparées par ";".  
-  - Décocher la ou les premières.   
+  - Les colonnes sont séparées par - personnalisé ";".  
+  - Décocher "Analyser la ou les	1 ligne(s) suivante(s) comme des entêtes de colonnes".  
 5. Créer projet.   
 </div>
 
@@ -1409,13 +1486,13 @@ Diviser le contenu de cellules en fonction d'un séparateur pour ne conserver qu
 
 - value.split(" ")[0]
 
-Diviser le contenu d'une cellules pour les réordonner 
+Diviser le contenu d'une cellule pour le réordonner 
 
 - value.split(",").reverse().join(",")
 
 - value.split(",").sort().join(",")
 
-Diviser après les 3 premiers caractères et conserve le premier élément  
+Diviser après les 3 premiers caractères et conserver le premier élément  
 
 - value.splitByLengths(3)[0] 
 
@@ -1466,7 +1543,7 @@ Ajouter un zéro devant le contenu si donne une chaine de 0 à 2 caractères
 <div class = "box1">
 Fonction if - même chose que dans excel  
 
-- if(test, si text est vrai, si text est vrai)
+- if(test, si test est vrai, si test est vrai)
 
 Si la cellule contient x, écrire x, sinon y
 
