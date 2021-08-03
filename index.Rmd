@@ -124,7 +124,7 @@ Avant d'utiliser ses données dans le logiciel de son choix, le nettoyage de ses
 
 - Plus facile que R et plus efficace qu'Excel.
 
-- Permet de facilement identifier et de corriger en lot des données incomplètes, manquantes, erronées, incohérentes, non pertinentes, mal formatés, qu'elles soient numériques ou textuelles => sauve temps et énergie.
+- Permet de facilement identifier et de corriger en lot des données incomplètes, manquantes, erronées, incohérentes, non pertinentes, mal formatées, qu'elles soient numériques ou textuelles => sauve temps et énergie.
 
 
 <center>   
@@ -269,7 +269,7 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 - OpenRefine ne modifie pas le fichier original, il travaille à partir d'une **copie en mémoire stockée en archives** dans le répertoire de travail.
 
-- Le projet est enregistré en format OpenRefine automatiquement dans le dossier de travail chaque 5 minutes ([peut être modifié](https://docs.openrefine.org/manual/running#jvm-preferences)).
+- Le projet est enregistré en format OpenRefine automatiquement dans le dossier de travail à toutes les 5 minutes ([peut être modifié](https://docs.openrefine.org/manual/running#jvm-preferences)).
 
 - Le fichier de données une fois nettoyé pourra être exporté en différents formats et l'historique/syntaxe pourra être extrait en format JSON et enregistré dans un fichier .txt.
 
@@ -293,7 +293,7 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 ## 3.2. Écran d'accueil
 
-- À partir du menu de gauche il est possible de `Créer un projet`, `Ouvrir un projet` (historique des projets enregistrés) ou `Importer un projet ` (archives .zip se trouvant dans le dossier de travail).   
+- À partir du menu de gauche, il est possible de `Créer un projet`, `Ouvrir un projet` (historique des projets enregistrés) ou `Importer un projet ` (archives .zip se trouvant dans le dossier de travail).   
 
 - Pour changer la langue de l'interface au français, cliquer sur l'onglet `Langue` dans le menu de gauche.  
 
@@ -746,7 +746,7 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 - Permettent de combiner différents filtres en sélectionnant différentes valeurs d'une ou plusieurs variables (et leurs cas correspondants).  
   - Cliquer `inclure` ou `exclure` pour sélectionner ou supprimer des choix multiples **[12]**.  
   - Une fois la sélection faite, l'option `inverser` permet de sélectionner tout SAUF la sélection **[11]**.  
-  - Peuvent être triées selon le nom ou le compte (nombre d'occurrence).  
+  - Peuvent être triées selon le nom ou le compte (nombre d'occurrences).  
 - Permettent **d’éditer les valeurs** (contenu de chaque cellule correspondante) **[13]**.  
 
 </br>
@@ -806,7 +806,7 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 
 - Fonction qui permet d'identifier dans une colonne les valeurs distinctes qui pourraient avoir la même signification ou qui pourraient être regroupées dans une même catégorie = "variations sur le même thème" évaluées en fonction de [différents algorithmes](https://github.com/OpenRefine/OpenRefine/wiki/Clustering-In-Depth). 
 
-- chaque suggestion doit être approuvée individuellement pour que les modifications s'appliquent (les regroupements proposés ne sont pas nécessairement pertinents).
+- Chaque suggestion doit être approuvée individuellement pour que les modifications s'appliquent (les regroupements proposés ne sont pas nécessairement pertinents).
 
 - OpenRefine propose des *clusters* selon différentes méthodes plus ou moins élaborées (*Proche voisin* prend plus de mémoire) qui permettent de regrouper les valeurs similaires et proposent des matchs possibles (*fuzzy matching*): par exemple *empreinte* est plus conservateur (distingue casse, espaces, ordre, répétition, ponctuation...), *ngram* est plus flexible (mêmes caractères), *Metaphone3* est le plus "libéral" (même prononciation).
 
@@ -945,7 +945,7 @@ Créer une facette sur la colonne *Code de lieu* pour identifier les cas dont la
 
 <div class = "box1">
 
-Créer une facette pour identifier les cas dont la valeur dans le colonne *Cause primaire* est la même que dans la colonne *Cause secondaire*
+Créer une facette pour identifier les cas dont la valeur dans la colonne *Cause primaire* est la même que dans la colonne *Cause secondaire*
 
 `value == cells["Cause secondaire"].value`   
 
@@ -1235,7 +1235,7 @@ Pour en savoir plus:
 ***
 
 
-La syntaxe est composée d'éléments permettant de  cibler des caractères précis et de définir leur emplacement et leur occurence.
+La syntaxe est composée d'éléments permettant de  cibler des caractères précis et de définir leur emplacement et leur occurrence.
 
 #### La syntaxe de base: 
 
@@ -1260,9 +1260,9 @@ La syntaxe est composée d'éléments permettant de  cibler des caractères pré
 +-------------------------------------------------------+--------------------------------------------------+
 | `|` : Ou                                               | `^` : Début d'une ligne                | 
 +-------------------------------------------------------+--------------------------------------------------+
-| `()` : Grouper un contenu et le garder en mémoire      | `$` : Fin d'une ligne ou rappeller un groupe    |
+| `()` : Grouper un contenu et le garder en mémoire      | `$` : Fin d'une ligne ou rappeler un groupe    |
 +-------------------------------------------------------+--------------------------------------------------+
-|  `\` : Chercher un caractère spécial littéralement    | Sans quantificateur, l'occurence est de 1       |
+|  `\` : Chercher un caractère spécial littéralement    | Sans quantificateur, l'occurrence est de 1       |
 +-------------------------------------------------------+--------------------------------------------------+
 
 ##### Par exemple, je cherche un contenu correspondant au motif:  
@@ -1338,7 +1338,7 @@ La syntaxe est composée d'éléments permettant de  cibler des caractères pré
   - Créer la colonne volume: `value.partition("vol.")[2].partition(")")[0]` ou avec regex: `value.match(/.*vol. (\d+).*/)[0]`.  
 Avec regex:  
 - Supprimer les lettres du prénom: `value.replace(/(\s[A-Z].\s)|(\s[A-Z].,\s)/, " ")`.  
-- Supprimer tout le contenu sauf les noms de familles: `value.replace(/(\s[A-Z].\s)|(\s[A-Z].,\s)|(et)|(,)/, " ")`.  
+- Supprimer tout le contenu sauf les noms de famille: `value.replace(/(\s[A-Z].\s)|(\s[A-Z].,\s)|(et)|(,)/, " ")`.  
 </div>
 
 </br>
