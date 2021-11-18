@@ -336,10 +336,6 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 - Pour ouvrir un fichier à partir de son poste, cliquer sur `Créer un projet` - > `Cet ordinateur` - > `sélectionner fichiers` sur son  poste -> `Suivant`.  
 
-- Pour ouvrir le fichier à partir de son emplacement sur Github: https://github.com/CRLNP/openrefine 
-  - Cliquer sur le fichier *Incidents métro-mtl.csv* -> Cliquer sur le bouton RAW -> copier l'adresse du navigateur.
-  - Dans OpenRefine, Créer un projet -> Adresses web (URLs) -> coller le lien.
-
 - Une fenêtre s'ouvre ensuite pour permettre de pré-visualiser son jeu de données et de modifier, si nécessaire, les options d'importation en fonction des caractéristiques du fichier de données: modification du format de fichier s'il n'a pas été identifié correctement (5), l'encodage des caractères [UTF-8] (6), le traitement des entêtes et premières lignes (9)...
 
 </br>
@@ -350,7 +346,10 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 ## Exercice
 
 <div class = "box1">
-- Créer un nouveau projet en important le fichier `Incidents métro.csv` disponible sur le site [Données ouvertes Montréal](https://donnees.montreal.ca/societe-de-transport-de-montreal/incidents-du-reseau-du-metro) (voir aussi le site de la STM [Indicateurs de performance reliés au service métro](http://www.stm.info/fr/a-propos/informations-entreprise-et-financieres/experience-client/indicateurs-de-performance-relies))
+- Créer un nouveau projet en important un fichier à partir de son emplacement sur Github: https://github.com/CRLNP/openrefine 
+  - Cliquer sur le fichier *Incidents métro-mtl.csv* -> Cliquer sur le bouton RAW -> copier l'adresse du navigateur.
+  - Dans OpenRefine, Créer un projet -> Adresses web (URLs) -> coller le lien -> Suivant.
+(Le fichier est aussi disponible sur le site [Données ouvertes Montréal](https://donnees.montreal.ca/societe-de-transport-de-montreal/incidents-du-reseau-du-metro)).     
 
 - Explorer les options d'importation -> Porter une attention particulière aux options: `Supprimer les espaces` (8 -> cocher), 	`Utiliser le caractère	" pour fermer les cellules contenant les séparateurs de colonnes` (10 -> cocher ou non), `Analyser le texte des cellules comme nombres , dates…` (11 -> décocher)
 
@@ -503,7 +502,7 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 **La gestion des lignes:**
 
 - La sélection de lignes peut se faire par le biais de filtres, facettes et autres manipulations personnalisées.  
-- Il est aussi possible de marquer/étoiler des lignes en lot ou individuellement puis de créer une facette sur la colonne `Toutes`.  
+- Il est aussi possible de marquer/étoiler des lignes en lot ou individuellement puis de créer une facette sur la colonne `Toutes` pour sélectionner les lignes marquées (`true`).  
 - On peut ensuite supprimer les lignes filtrées: `Toutes -> Éditer les lignes -> Supprimer les lignes correspondantes`.  
 
 </br>
@@ -644,9 +643,10 @@ GREL - Expressions similaires aux formules excel mais qui s'appliquent aux colon
 </br>
 
 <div class = "box1">
-- Trier les valeurs de la colonne `Mois Calendrier`  
-- Trier les valeurs de la colonne `Jour du mois`  
-- Explorer le résultat... 
+- Trier les valeurs des cellules comme texte de la colonne `Mois Calendrier` .   
+- Trier les valeurs des cellules comme texte de la colonne `Jour du mois`.  
+- Explorer le résultat...   
+- Supprimer le tri et recommancer la procédure avec un tri de format nombre.  
 </div>
 
 </br>
@@ -671,8 +671,8 @@ GREL - Expressions similaires aux formules excel mais qui s'appliquent aux colon
 - Filtrer le texte sur la colonne *Code de lieu*: "berri"  
 - Filtrer le texte sur la colonne *Heure de l'incident*: "12"  
 - Explorer les résultats  
-- Comment s'assurer d'avoir seulement les cas survenus entre 12h et 13h? Combien de lignes correspondent à ces conditions? 
-- Tout supprimer les filtres.
+- Comment s'assurer d'avoir seulement les cas survenus entre 12h et 13h? Combien de lignes correspondent à ces conditions?^[12: ou expression rationnelle ^12]  
+- Supprimer tous les filtres.
 </div>
 
 </br>
@@ -778,7 +778,7 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 - Explorer les valeurs de la variable *Cause primaire*. Quelle est la deuxième plus fréquente? 
 - Quelles sont les catégories de *Cause secondaire* reliées à la *Cause primaire "Clientèle"*?   
 - Quelle est la plus fréquente? Sélectionner cette valeur. Combien de cas correspondent à cette sélection?  
-- À quel *jour de la semaine* cette cause est-elle survenue le plus souvent?  
+- À quel *jour de la semaine* cette cause est-elle survenue le plus souvent?^[Clientèle / Blessée ou malade, Méfait volontaire, Nuisance involontaire / Méfait volontaire 781/ 5]   
 - Réinitialiser toutes les facettes.
 
 **Éditer**  
@@ -796,7 +796,7 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 
 - Quel est le *symptome* le plus fréquent? Sélectionner cette valeur.  
 - Sur quelle *Ligne* ce *symptome* s'est produit le plus souvent? Sélectionner cette valeur.  
-- Ces événements ont-ils nécessité une *évacuation*?  
+- Ces événements ont-ils nécessité une *évacuation*?^[Clientèle / Ligne orange / Oui 17]     
 
 **Éditer**  
 - Éditer la variable *évacuation* de façon à ce qu'il n'y ait que **deux valeurs** possibles: Oui et Non.  
@@ -876,6 +876,7 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 
 </br>
 
+#### Différents types d'opérateurs:  
 Selon le format, différents types d'**opérateurs** peuvent être utilisés entre les valeurs:  
 	- Opérateurs arithmétiques: +, -, *, /  
 	- Opérateurs booléens: ==, >, <  
@@ -892,6 +893,7 @@ Par exemple:
 
 </br>
 
+#### L'indexation, la sélection et la manipulation d'éléments:  
 - Chaque caractère composant une valeur est ordonné dans un index **à partir de 0** (1er élément) et peut être ciblé grâce aux `[ ]`.
 - De la même façon, chaque élément d'un *array* est ordonné dans un index **à partir de 0** (1er élément) et peut être ciblé grâce aux `[ ]`.  
 
@@ -900,10 +902,12 @@ Par exemple:
 
 </br>
 
+**Exemple 1**
 
 ![](images/OR25.jpg)
 
-</br>
+`Martinolli, Pascal; Gabrielli, Nino; Fortier, Catherine; Bellemare, Pascale`
+
 
 Éditer les cellules -> Transformer -> `value.split("; ").sort().join("; ")` 
 
@@ -915,23 +919,27 @@ Par exemple:
 
 </br>
 
+**Exemple 2**
 Éditer les cellules -> Transformer -> `value.split("; ").slice(1).join("; ")` 
 
 ![](images/OR27.jpg)
 
-- Ici la fonction `slice()` conserve les éléments à partir de l'élément en position 1 donc supprime le 0. 
+- La fonction `slice()` conserve les éléments à partir de l'élément en position 1 donc supprime le 0. 
 
 
 </br>
 
+**Exemple 3**
 
-![](images/OR28.jpg)
+Éditer les cellules -> Transformer -> `value.split("; ")[1].split(", ").reverse().join(" ") + " est le meilleur"` 
 
-</br>
+![](images/OR38.jpg)
 
-Éditer les cellules -> Transformer -> `value.split(/\n/).slice(1).join("; ")` 
-
-![](images/OR29.jpg)
+- split(): divise la cellule en éléments distincts sur la base du séparateur ;
+- slice(): retient le deuxième élément
+- split(): divise cet élément sur le séparateur ,
+- reverse(): inverse l'ordre des deux éléments
+- join(): rattache les deux éléments divisé avec un espace
 
 </br>
 
@@ -1238,10 +1246,9 @@ Pour en savoir plus:
 
 ***
 
+### La syntaxe de base:   
 
 La syntaxe est composée d'éléments permettant de  cibler des caractères précis et de définir leur emplacement et leur occurrence.
-
-#### La syntaxe de base: 
 
 +-------------------------------------------------------+------------------------------------------------+
 | TYPES DE CARACTÈRES                                   | QUANTIFICATEURS ET EMPLACEMENT                 | 
@@ -1277,6 +1284,7 @@ La syntaxe est composée d'éléments permettant de  cibler des caractères pré
 - suivi d'un espace ou plus   
 - suivi d'une lettre majuscule avec un point   
 
+</br>
 
 ##### Autres exemples avec la syntaxe OpenRefine:
 
