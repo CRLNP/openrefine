@@ -59,7 +59,6 @@ opts_knit$set(width=75)
 
 ***
 
-</br>
 
 # 1. Préliminaires
 ## Des données bien ordonnées commencent par soi-même!
@@ -92,7 +91,6 @@ opts_knit$set(width=75)
 
 ***
 
-</br>
 
 Avant d'utiliser ses données dans le logiciel de son choix, le nettoyage de ses données peut donc inclure de nombreuses tâches comme:
 
@@ -116,7 +114,6 @@ Avant d'utiliser ses données dans le logiciel de son choix, le nettoyage de ses
 
 ***
 
-</br>
 
 # 2. Pourquoi OpenRefine?
 
@@ -146,9 +143,19 @@ Avant d'utiliser ses données dans le logiciel de son choix, le nettoyage de ses
 
 </br>
 
-***
+<div class = "note">
+
+**À noter** 
+
+OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de créer un jeu de données à partir de zéro. Ce n'est pas un outil de remplacement mais complémentaire.
+
+</div>
+
 
 </br>
+
+***
+
 
 ## 2.1. Exemples d'utilisation
 
@@ -164,7 +171,6 @@ Harmoniser, standardiser, uniformiser...
 
 ***
 
-</br>
 
 ## 2.2. Pour avoir de belles données *tidy*
 
@@ -190,7 +196,6 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 
 ***
 
-</br>
 
 ## 2.3.  Principales caractéristiques
 
@@ -212,20 +217,9 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 
 </br>
 
-<div class = "note">
-
-**À noter** 
-
-OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de créer un jeu de données à partir de zéro. Ce n'est pas un outil de remplacement mais complémentaire.
-
-</div>
-
-
-</br>
 
 ***
 
-</br>
 
 # 3. Installation et fonctionnement général
 
@@ -255,7 +249,6 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 ***
 
-</br>
 
 ## 3.1. Travail local
 
@@ -289,7 +282,6 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 ***
 
-</br>
 
 ## 3.2. Écran d'accueil
 
@@ -311,7 +303,6 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 ***
 
-</br>
 
 ## 3.3. Historique des projets
 
@@ -330,7 +321,6 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 ***
 
-</br>
 
 # 4. Créer un projet
 
@@ -341,7 +331,7 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 </br>
 
 ![](images/OR2.jpg)  
-</br>
+
 
 ## Exercice
 
@@ -360,7 +350,6 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 ***
 
-</br>
 
 # 5. Explorer l'interface
 
@@ -390,7 +379,6 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 ***
 
-</br> 
 
 ## 5.1. L'édition de cellules
 
@@ -407,7 +395,6 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 </center>  
 
 
-</br>
 
 ## Exercice
 
@@ -421,22 +408,22 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 ***
 
-</br>
 
-## 5.2. Format des données
+## 5.2. Format des données  
+
 
 #### Trois formats de base: 
   1. Chaîne de caractères
   2. Nombre
   3. Date (norme ISO-8601 YYYY-MM-DDTHH:MM:SSZ)*
   
-  </br>
+
   
 #### Deux formats découlant d'actions: 
   - Erreur (format attribué suite à une erreur de transformation)  
   - Null**
 
-</br>
+
 
 #### Deux autres types particuliers découlant de manipulations
   - Booléen (valeur binaire T ou F)
@@ -483,9 +470,10 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 ***
 
+
 ## 5.3. La gestion des lignes et colonnes
 
-**La gestion des colonnes peut se faire:**
+#### La gestion des colonnes peut se faire:
 
 - Sur chaque colonne: 
   - Fonctions sous `Éditer la colonne -> Déplacer ... / Renommer / Supprimer`   
@@ -499,7 +487,7 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 </br>
 
-**La gestion des lignes:**
+#### La gestion des lignes:
 
 - La sélection de lignes peut se faire par le biais de filtres, facettes et autres manipulations personnalisées.  
 - Il est aussi possible de marquer/étoiler des lignes en lot ou individuellement puis de créer une facette sur la colonne `Toutes` pour sélectionner les lignes marquées (`true`).  
@@ -520,7 +508,6 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 ***
 
-</br>
 
 ## 5.4. Historique (Undo/Redo)
 
@@ -549,7 +536,6 @@ OpenRefine n'est pas un outil d'analyse ou de visualisation et ne permet pas de 
 
 ***
 
-</br>
 
 # 6. Menu et fonctions de base
 
@@ -558,14 +544,13 @@ Open Refine permet de travailler de **deux façons**:
 
 1. Avec l'ensemble des **fonctions automatisées** que l'on retrouve dans les menus.
 
+2. En rédigeant ses propres [expressions](https://docs.openrefine.org/manual/expressions)avec le **langage GREL**.  
 
-2. Avec le **langage GREL** permettant de rédiger ses propres [expressions.](https://docs.openrefine.org/manual/expressions).  
-
-- Même lorsque l'on utilise les fonctions automatisées, il est possible d'en modifier le fonctionnement en éditant directement la syntaxe GREL correspondante. 
+  - Même lorsque l'on utilise les fonctions automatisées, il est possible d'en modifier le fonctionnement en éditant directement la syntaxe GREL correspondante. 
 
 </br>
 
-## 6.1. Fonctions automatisées:
+## 6.1. Utiliser les fonctions automatisées:
 
 - Le menu et l'ensemble de ses fonctions automatisées apparaissent en cliquant sur la flèche de l'intitulé de chaque colonne.
 
@@ -591,19 +576,20 @@ Open Refine permet de travailler de **deux façons**:
 
 ***
 
-## 6.2. Le langage GREL
+## 6.2. Écrire ses fonctions avec GREL
+
+</br>
+
+Expressions similaires aux formules Excel mais qui s'appliquent aux colonnes, non aux cellules, et qui ne sont pas stockées à même les données mais dans un script.  
 
 </br>
 
 ![](images/OR14.jpg)
 
-</br>
-
-GREL - Expressions similaires aux formules excel mais qui s'appliquent aux colonnes, non aux cellules, et qui ne sont pas stockées à même les données mais dans un script.  
 
 </br>
 
-### Le langage GREL peut s'utiliser de différentes façons:  
+#### Le langage GREL peut s'utiliser de différentes façons:  
 
 - En créant des facettes personnalisées : `Facette -> Facette textuelle personnalisée`.  
 
@@ -619,7 +605,6 @@ GREL - Expressions similaires aux formules excel mais qui s'appliquent aux colon
 
 ***
 
-</br>
 
 ## 6.3. Trier un fichier
 
@@ -653,7 +638,6 @@ GREL - Expressions similaires aux formules excel mais qui s'appliquent aux colon
 
 ***
 
-</br>
 
 ## 6.4. Filtrer le texte
 
@@ -679,9 +663,10 @@ GREL - Expressions similaires aux formules excel mais qui s'appliquent aux colon
 
 ***
 
-</br>
 
 # 7. Les facettes
+
+## 7.1 Caractéristiques
 
 <div class = "right">
 <img src="images/OR34.jpg"  width="60%" />
@@ -705,65 +690,53 @@ GREL - Expressions similaires aux formules excel mais qui s'appliquent aux colon
 
 ### Deux types de facettes:
 
-  - [1] Les facettes automatisées. 
+  - Les facettes automatisées **[1]**.   
   </br>
-  - [2] Les facettes personnalisées.
+  - Les facettes personnalisées **[2]**.  
   </br>
-  - [3] Il est aussi possible de créer ses propres facettes grâce au langage GREL pour définir des conditions de sélection/filtre très précises (on parle encore ici de `facettes personnalisées`, mais elles doivent être rédigées manuellement).
-
-</br>
-
-### Trois formats de facettes:
-
-On retrouve également différents **formats de facettes** -> une pour chaque format de données  
-
-1. `Facette textuelle` [4-5]  
-
-2. `Facette numérique`  [7]  
-
-3. `Facette chronologique` [6]  
-
-- Les facettes personnalisées proposent aussi des facettes booléennes.  
+    - Il est aussi possible de créer ses propres facettes grâce au langage GREL pour définir des conditions de sélection/filtre très précises **[3]** (on parle encore ici de *facettes personnalisées*, mais elles doivent être rédigées manuellement).
 
 </br>
 
 <center>  
 
 ![](images/OR23.jpg)
+
 </center>  
+    - **[8]** Le lien `changer` permet d'ouvrir une fenêtre d'édition GREL pour modifier la syntaxe de la facette.  
+    - **[9]** Pour supprimer les facettes, cliquer sur le x de chaque fenêtre ou `Tout supprimer`.  
+    - Pour conserver les fenêtres mais supprimer les sélections qui y ont été faites, cliquer sur `réintialiser` sur chaque fenêtre ou `Tout réinitialiser` **[9]**.  
+    - **[10]** Option `Groupe`: Outils proposant différents algorithmes de similarité permettant de regrouper des catégories semblables.  
 
-- **[8]** Le lien `changer` permet d'ouvrir une fenêtre d'édition GREL pour modifier la syntaxe de la facette.  
-- **[9]** Pour supprimer les facettes, cliquer sur le x de chaque fenêtre ou `Tout supprimer`.  
-- Pour conserver les fenêtres mais supprimer les sélections qui y ont été faites, cliquer sur `réintialiser` sur chaque fenêtre ou `Tout réinitialiser` **[9]**.  
-- **[10]** Option `Groupe`: Outils proposant différents algorithmes de similarité permettant de regrouper des catégories semblables.  
 
-</br>
+### Trois formats de facettes:
 
-#### 1. Facette textuelle [4-5] 
+On retrouve également différents **formats de facettes** -> une pour chaque format de données (Les facettes personnalisées proposent aussi des facettes booléennes).   
 
-- Type de facette le plus souvent utilisé.  
 
-- Regroupent dans la fenêtre de gauche les valeurs distinctes (textuelles ou numériques) des colonnes voulues.  
+#### 1. Facette textuelle **[4-5]** 
+
+- Type de facette le plus souvent utilisé.   
+- Regroupent dans la fenêtre de gauche les valeurs distinctes (textuelles ou numériques) des colonnes voulues.   
   - On peut faire une facette textuelle sur une colonne numérique mais pas l'inverse.  
   - 2000 valeurs maximum par défaut mais peut être modifié dans les préférences. Si les valeurs sont trop nombreuses, elles ne seront pas listées (un filtre pourrait être utilisé). 
-  
-- Permettent de combiner différents filtres en sélectionnant différentes valeurs d'une ou plusieurs variables (et leurs cas correspondants).  
-  - Cliquer `inclure` ou `exclure` pour sélectionner ou supprimer des choix multiples **[12]**.  
-  - Une fois la sélection faite, l'option `inverser` permet de sélectionner tout SAUF la sélection **[11]**.  
-  - Peuvent être triées selon le nom ou le compte (nombre d'occurrences).  
+- Permettent de combiner différents filtres en sélectionnant différentes valeurs d'une ou plusieurs variables (et leurs cas correspondants).   
+  - Cliquer `inclure` ou `exclure` pour sélectionner ou supprimer des choix multiples **[12]**.   
+  - Une fois la sélection faite, l'option `inverser` permet de sélectionner tout SAUF la sélection **[11]**.   
+  - Peuvent être triées selon le nom ou le compte (nombre d'occurrences).   
 - Permettent **d’éditer les valeurs** (contenu de chaque cellule correspondante) **[13]**.  
 
-</br>
 
-#### 2. Facette numérique [7]
+#### 2. Facette numérique **[7]**
 
 - Visualiser et sélectionner les valeurs d’une variable numérique allant de la plus petite à la plus grande.  
 
-</br>
 
-#### 3. Facette chronologique [6]
+#### 3. Facette chronologique **[6]**
 
 - Visualiser et sélectionner les valeurs d’une colonne date en ligne du temps.  
+
+
 
 
 
@@ -804,9 +777,8 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 
 ***
 
-</br>
 
-# 8. Les regroupements (clustering)
+## 7.2. Les regroupements (clustering)
 
 - Fonction qui permet d'identifier dans une colonne les valeurs distinctes qui pourraient avoir la même signification ou qui pourraient être regroupées dans une même catégorie = "variations sur le même thème" évaluées en fonction de [différents algorithmes](https://github.com/OpenRefine/OpenRefine/wiki/Clustering-In-Depth). 
 
@@ -823,9 +795,8 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 
 ***
 
-</br>
 
-# 9. GREL et les facettes personnalisées 
+## 7.3. Les facettes personnalisées 
 
 
 - Fonctionnent comme des facettes automatisées sauf qu'on ne peut éditer en fonction de ces résultats car elles présentent des données modifiées en mémoire.
@@ -844,9 +815,9 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 
 *** 
 
-</br>
 
-### GREL - principes de base  
+# 8. Le langage GREL 
+
 
 - *Google Refine Expression Language* 
 - Langage similaire à javascript et formules excel.    
@@ -855,6 +826,8 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 - Langage composé de [fonctions](https://docs.openrefine.org/manual/grelfunctions) et d'[objets](https://docs.openrefine.org/manual/expressions#variables).
 
 </br>
+
+###  8.1. GREL - Principes de base 
 
 #### Utilise une syntaxe particulière pour cibler les objets (variables):  
 - Contenu de colonne actuelle: `value`.     
@@ -881,7 +854,7 @@ Selon le format, différents types d'**opérateurs** peuvent être utilisés ent
 	- Opérateurs arithmétiques: +, -, *, /  
 	- Opérateurs booléens: ==, >, <  
   
-Par exemple:
+**Par exemple:**
 
 - Le "+" entre deux contenus numériques = somme
 
@@ -893,7 +866,10 @@ Par exemple:
 
 </br>
 
-#### L'indexation, la sélection et la manipulation d'éléments:  
+***  
+
+###  8.2. GREL - L'indexation, la sélection et la manipulation d'éléments:  
+
 - Chaque caractère composant une valeur est ordonné dans un index **à partir de 0** (1er élément) et peut être ciblé grâce aux `[ ]`.
 - De la même façon, chaque élément d'un *array* est ordonné dans un index **à partir de 0** (1er élément) et peut être ciblé grâce aux `[ ]`.  
 
@@ -904,28 +880,28 @@ Par exemple:
 
 **Exemple 1**
 
-![](images/OR25.jpg)
-
 `Martinolli, Pascal; Gabrielli, Nino; Fortier, Catherine; Bellemare, Pascale`
+
+![](images/OR25.jpg)
 
 
 Éditer les cellules -> Transformer -> `value.split("; ").sort().join("; ")` 
 
 ![](images/OR26.jpg)
 
-- split(): divise la cellule en éléments distincts sur la base du séparateur ;
-- sort(): tri les éléments
-- join(): les joints avec le séparateur ;
+- `split()`: divise la cellule en éléments distincts sur la base du séparateur ;
+- `sort()`: tri les éléments
+- `join()`: les joints avec le séparateur ;
 
 </br>
 
-**Exemple 2**
+**Exemple 2**   
+
 Éditer les cellules -> Transformer -> `value.split("; ").slice(1).join("; ")` 
 
 ![](images/OR27.jpg)
 
-- La fonction `slice()` conserve les éléments à partir de l'élément en position 1 donc supprime le 0. 
-
+- `slice()` : conserve les éléments à partir de l'élément 1 donc supprime le 0. 
 
 </br>
 
@@ -935,11 +911,11 @@ Par exemple:
 
 ![](images/OR38.jpg)
 
-- split(): divise la cellule en éléments distincts sur la base du séparateur ;
-- slice(): retient le deuxième élément
-- split(): divise cet élément sur le séparateur ,
-- reverse(): inverse l'ordre des deux éléments
-- join(): rattache les deux éléments divisé avec un espace
+- `split()`: divise la cellule en éléments distincts sur la base du séparateur ;
+- `slice()`: retient le deuxième élément
+- `split()`: divise cet élément sur le séparateur ,
+- `reverse()`: inverse l'ordre des deux éléments
+- `join()`: rattache les deux éléments divisé avec un espace
 
 </br>
 
@@ -979,9 +955,8 @@ Créer une facette pour lister les cas selon l'*heure de l'incident* seulement, 
 
 ***
 
-</br>
 
-# 10.  Transformations
+# 9.  Transformations
 
 - OpenRefine permet d'explorer mais aussi de modifier ses données sans avoir à toucher au contenu de cellules manuellement.  
 
@@ -1001,7 +976,7 @@ Pour voir la syntaxe correspondant à chaque fonction de `transformations couran
 
 ***
 
-## 10.1 Créer et copier des colonnes
+## 9.1. Créer et copier des colonnes
 
 </br>
 
@@ -1036,9 +1011,8 @@ Ou
 
 *** 
 
-</br>
 
-## 10.2. Diviser le contenu de cellules multivariées
+## 9.2. Diviser le contenu de cellules multivariées
 
 - **Deux options: **  
   1. En divisant le contenu des cellules en **plusieurs colonnes**: `Éditer la colonne -> Diviser en plusieurs colonnes`  
@@ -1141,9 +1115,8 @@ Remplacer les valeurs "#" dans toute la base de données par "aucun"**
 
 ***
 
-</br>
 
-## 10.3. Fusionner le contenu de plusieurs colonnes
+## 9.3. Fusionner le contenu de plusieurs colonnes
 
 ### Défit   
 Nous souhaitons calculer la durée des incidents. Pour ce faire nous créerons deux colonnes:  
@@ -1212,9 +1185,7 @@ Calculer la durée de l'incident
 ***
 
 
-</br>
-
-# 11. Les expressions régulières {#expression}
+# 10. Les expressions régulières {#expression}
 
 </br>
 
@@ -1358,7 +1329,7 @@ Avec regex:
 
 ***
 
-# 12. Transposition
+# 11. Transposition
 
 ## Exercice: transposer un tableau d'indicateurs du WDI
 </br>
@@ -1415,7 +1386,7 @@ Avec regex:
 
 ***
 
-# 13. Exporter un fichier et fermer OpenRefine
+# 12. Exporter un fichier et fermer OpenRefine
 
 - Fonction à utiliser lorsque l'on est prêt à exporter son fichier en différents formats pour travailler dans un autre logiciel (.csv, .xls...)
 - OR sauvegarde automatiquement les fichiers sous forme d'archives de projet dans un dossier sur le poste de travail auxquelles on peut accéder en cliquant sur `Ouvrir un projet` sur la page principale.
@@ -1428,7 +1399,7 @@ Avec regex:
 ***
 
 
-# 14. Pour faire durer le plaisir!
+# 13. Pour faire durer le plaisir!
 
 <div class = "box2">
 #### Extraire seulement certains caractères selon leur position
@@ -1702,9 +1673,8 @@ Extraire seulement une partie d'une date
 
 ***
 
-</br>
 
-# 15. Ressources
+# 14. Ressources
 
 - [Site et documentation officiels](https://openrefine.org/)
 
