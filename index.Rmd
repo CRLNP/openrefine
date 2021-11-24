@@ -1721,6 +1721,7 @@ Extraire seulement une partie d'une date
 
 -[Open Refine FOr Librarians](http://liwong.blogspot.com/)
 
+- Recipes: [Open Refine for Librarians](http://liwong.blogspot.com/search/label/recipe)
 
 <style>
 .right {
