@@ -537,14 +537,14 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 ***
 
 
-# 6. Menu et fonctions de base
+# 6. Menu et types de fonctions
 
 Open Refine permet de travailler de **deux façons**:  
 
 
 1. Avec l'ensemble des **fonctions automatisées** que l'on retrouve dans les menus.
 
-2. En rédigeant ses propres [expressions](https://docs.openrefine.org/manual/expressions)avec le **langage GREL**.  
+2. En rédigeant ses propres [expressions](https://docs.openrefine.org/manual/expressions) avec le **langage GREL**.  
 
   - Même lorsque l'on utilise les fonctions automatisées, il est possible d'en modifier le fonctionnement en éditant directement la syntaxe GREL correspondante. 
 
@@ -558,15 +558,14 @@ Open Refine permet de travailler de **deux façons**:
 
 </br>
 
-#### Menu et fonctions de la colonne `Toutes`
+**Menu et fonctions de la colonne `Toutes`**
 
-</br>
 
 ![](images/OR21.jpg){width=90%}
 
 </br>
 
-#### Menu et fonctions de chaque colonne-variable
+**Menu et fonctions de chaque colonne-variable**
 
 </br>
 
@@ -870,13 +869,27 @@ Selon le format, différents types d'**opérateurs** peuvent être utilisés ent
 
 ###  8.2. GREL - L'indexation, la sélection et la manipulation d'éléments:  
 
-- Chaque caractère composant une valeur est ordonné dans un index **à partir de 0** (1er élément) et peut être ciblé grâce aux `[ ]`.
-- De la même façon, chaque élément d'un *array* est ordonné dans un index **à partir de 0** (1er élément) et peut être ciblé grâce aux `[ ]`.  
+- Chaque caractère composant la valeur d'une cellule est ordonné dans un index **à partir de 0** (1er élément).
+- Chaque élément d'un *array* est ordonné dans un index **à partir de 0** (1er élément) et peut être ciblé grâce aux `[ ]`.  
+- L'opérateur `[ ]` permet de cibler/sélectionner des chaines de caractères ou des sous-éléments spécifiques. 
 
+> `value[0,8]` -> Montréal (Québec) = ?   
 > `value.split("(")[1]` -> Montréal (Québec) = ?  
-> `value.split("(")[1].split(")")[0]` -> Montréal (Québec) = ?  
+> `value.split("(")[1].split(")")[0]` -> Montréal (Québec) = ?^[Montréal / Québec) / Québec]  
 
 </br>
+
+## Exercice
+
+<div class = "box1">
+
+`ISBN: 978-2-13-082930-0`
+
+Comment conserver seulement le chiffre de l'ISBN dans les traits d'union?^[value[5,24].replace("-", "")]
+
+Indices: `value` et fonction `.replace`
+
+</div>
 
 **Exemple 1**
 
@@ -1705,6 +1718,8 @@ Extraire seulement une partie d'une date
 - [Cheat Sheet: Regular Expressions & GREL](https://code4libtoronto.github.io/2018-10-12-access/GoogleRefineCheatSheets.pdf)
 
 - [Etc!](https://github.com/OpenRefine/OpenRefine/wiki/External-Resources)
+
+-[Open Refine FOr Librarians](http://liwong.blogspot.com/)
 
 
 <style>
