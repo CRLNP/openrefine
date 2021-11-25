@@ -1049,11 +1049,11 @@ Selon le format, différents types d'**opérateurs** peuvent être utilisés ent
 
 `ISBN: 978-2-13-082930-0`
 
-Conserver seulement le chiffre de l'ISBN dans les traits d'union?^[value[5,24].replace("-", "")]
+Conserver seulement le chiffre de l'ISBN sans les traits d'union?^[value[5,24].replace("-", "")]
 
-Indices:  
+Indices :  
 
-- `value`  
+- Deux façons de faire: `value` OU `value.split()`
 - `replace()`  ("quelque chose", "par le vide")
 
 </div>
