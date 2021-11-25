@@ -537,7 +537,7 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 ***
 
 
-# 6. Menu et types de fonctions
+# 6. Menu et fonctions
 
 Open Refine permet de travailler de **deux façons**:  
 
@@ -558,18 +558,17 @@ Open Refine permet de travailler de **deux façons**:
 
 </br>
 
-**Menu et fonctions de la colonne `Toutes`**
-
-
-![](images/OR21.jpg){width=90%}
-
-</br>
-
 **Menu et fonctions de chaque colonne-variable**
 
 </br>
 
 ![](images/OR12.jpg){width=90%}
+
+</br>
+
+**Menu et fonctions de la colonne `Toutes`**
+
+![](images/OR21.jpg){width=90%}
 
 </br>
 
@@ -585,10 +584,9 @@ Expressions similaires aux formules Excel mais qui s'appliquent aux colonnes, no
 
 ![](images/OR14.jpg)
 
-
 </br>
 
-#### Le langage GREL peut s'utiliser de différentes façons:  
+**Le langage GREL peut s'utiliser de différentes façons:**  
 
 - En créant des facettes personnalisées : `Facette -> Facette textuelle personnalisée`.  
 
@@ -620,7 +618,7 @@ Expressions similaires aux formules Excel mais qui s'appliquent aux colonnes, no
 ## Exercice
 
 <div class = "box1">
-- Trier les valeurs de la colonne `Jour calendaire` en `date antéchronologique`.  
+- Trier les valeurs de la colonne `Jour calendaire` en format `date antéchronologique`.  
 - Quelle est la dernière date d'incident enregistrée dans le fichier ?  
 - Supprimer le tri.  
 </div>
@@ -736,9 +734,6 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 - Visualiser et sélectionner les valeurs d’une colonne date en ligne du temps.  
 
 
-
-
-
 </br>
 
 ## Exercice
@@ -814,162 +809,7 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 
 *** 
 
-
-# 8. Le langage GREL 
-
-
-- *Google Refine Expression Language* 
-- Langage similaire à javascript et formules excel.    
-- Permet la rédaction d'expressions visant à manipuler/transformer le contenu des cellules d'une colonne.  
-(Voir la [documentation officielle](https://docs.openrefine.org/manual/grel) pour plus de détails)  
-- Langage composé de [fonctions](https://docs.openrefine.org/manual/grelfunctions) et d'[objets](https://docs.openrefine.org/manual/expressions#variables).
-
-</br>
-
-###  8.1. GREL - Principes de base 
-
-#### Utilise une syntaxe particulière pour cibler les objets (variables):  
-- Contenu de colonne actuelle: `value`.     
-- Contenu d'une autre colonne: `cells['nom-colonne'].value`.    
-- Contenu textuel: "guillemet simple ou double".    
-
-</br>
-
-#### Deux formats de notation:  
-- Imbriquée: (trim(toLowercase(value)).    
-- **Séquentielle**: value.toLowercase().trim() (plus facile à lire).    
-
-</br>
-
-#### Différents types de fonctions:  
-- Les fonctions et leur comportement dépendront du type de données manipulées.  
-- [Certaines fonctions](https://docs.openrefine.org/manual/grelfunctions#slicea-n-from-n-to-optional) permettent de transformer le contenu de cellules en `arrays` (liste d'éléments) et de les manipuler.  
-- [Certaines fonctions](https://docs.openrefine.org/manual/expressions#regular-expressions) permettent d'utiliser les [expressions régulières](#expression).  
-
-</br>
-
-#### Différents types d'opérateurs:  
-Selon le format, différents types d'**opérateurs** peuvent être utilisés entre les valeurs:  
-	- Opérateurs arithmétiques: +, -, *, /  
-	- Opérateurs booléens: ==, >, <  
-  
-**Par exemple:**
-
-- Le "+" entre deux contenus numériques = somme
-
-![](images/OR30.jpg)
-
-- Le "+" avec un contenu textuel = concaténation
-
-![](images/OR31.jpg)
-
-</br>
-
-***  
-
-###  8.2. GREL - L'indexation, la sélection et la manipulation d'éléments:  
-
-- Chaque caractère composant la valeur d'une cellule est ordonné dans un index **à partir de 0** (1er élément).
-- Chaque élément d'un *array* est ordonné dans un index **à partir de 0** (1er élément) et peut être ciblé grâce aux `[ ]`.  
-- L'opérateur `[ ]` permet de cibler/sélectionner des chaines de caractères ou des sous-éléments spécifiques. 
-
-> `value[0,8]` -> Montréal (Québec) = ?   
-> `value.split("(")[1]` -> Montréal (Québec) = ?  
-> `value.split("(")[1].split(")")[0]` -> Montréal (Québec) = ?^[Montréal / Québec) / Québec]  
-
-</br>
-
-## Exercice
-
-<div class = "box1">
-
-`ISBN: 978-2-13-082930-0`
-
-Comment conserver seulement le chiffre de l'ISBN dans les traits d'union?^[value[5,24].replace("-", "")]
-
-Indices: `value` et fonction `.replace`
-
-</div>
-
-**Exemple 1**
-
-`Martinolli, Pascal; Gabrielli, Nino; Fortier, Catherine; Bellemare, Pascale`
-
-![](images/OR25.jpg)
-
-
-Éditer les cellules -> Transformer -> `value.split("; ").sort().join("; ")` 
-
-![](images/OR26.jpg)
-
-- `split()`: divise la cellule en éléments distincts sur la base du séparateur ;
-- `sort()`: tri les éléments
-- `join()`: les joints avec le séparateur ;
-
-</br>
-
-**Exemple 2**   
-
-Éditer les cellules -> Transformer -> `value.split("; ").slice(1).join("; ")` 
-
-![](images/OR27.jpg)
-
-- `slice()` : conserve les éléments à partir de l'élément 1 donc supprime le 0. 
-
-</br>
-
-**Exemple 3**
-
-Éditer les cellules -> Transformer -> `value.split("; ")[1].split(", ").reverse().join(" ") + " est le meilleur"` 
-
-![](images/OR38.jpg)
-
-- `split()`: divise la cellule en éléments distincts sur la base du séparateur ;
-- `slice()`: retient le deuxième élément
-- `split()`: divise cet élément sur le séparateur ,
-- `reverse()`: inverse l'ordre des deux éléments
-- `join()`: rattache les deux éléments divisé avec un espace
-
-</br>
-
-## Exercice
-
-<div class = "box1">
-
-Créer une facette sur la colonne *Code de lieu* pour identifier les cas dont la valeur commence par "Côte"  
-
-`value.startsWith(“Côte”)`    
-
-</div>
-
-</br>
-
-<div class = "box1">
-
-Créer une facette pour identifier les cas dont la valeur dans la colonne *Cause primaire* est la même que dans la colonne *Cause secondaire*
-
-`value == cells["Cause secondaire"].value`   
-
-</div>
-
-</br>
-
-<div class = "box1">
-
-Créer une facette pour lister les cas selon l'*heure de l'incident* seulement, sans les minutes (2 premiers caractères). Comment faire afficher les minutes seulement?^[value[3,5] ou value.substring(3)] 
-
-`value[0,2]`   
-
-
-</div>
-
-</br>
-
-
-***
-
-
-# 9.  Transformations
+# 8.  Transformations
 
 - OpenRefine permet d'explorer mais aussi de modifier ses données sans avoir à toucher au contenu de cellules manuellement.  
 
@@ -987,45 +827,10 @@ Créer une facette pour lister les cas selon l'*heure de l'incident* seulement, 
 <div class = "note">
 Pour voir la syntaxe correspondant à chaque fonction de `transformations courantes`, appliquer la fonction sur une colonne puis aller voir l'historique. Par exemple: `value.toNumber()`, `value.toTitlecase()`, `value.toNumber()`, `value.toUppercase()`, `value.trim()`... </div>
 
-***
-
-## 9.1. Créer et copier des colonnes
-
-</br>
-
-`Éditer la colonne -> Ajouter une colonne en fonction de cette colonne`
-
-![](images/OR32.jpg)
-
-
-## Exercice
-
-<div class = "box2">
-Créer une nouvelle colonne sur la base de la colonne *Jour de la semaine* indiquant si le jour est en semaine ou fin de semaine.
-</div>
-<div class = "box1">
-`if(value > 5,"fin de semaine","semaine")`
-</div>
-
-</br>
-
-<div class = "box2">
-Créer une colonne à partir de la colonne *heure de l'incident* en ne conservant que l'heure, sans les minutes, et rajouter la lettre h pour donner par exemple ceci: 15:12  ->  15h.  
-</div>
-<div class = "box1">
-`value.split(':')[0] + "h"`.  
-
-Ou
-
-`value.splitByLengths(2)[0]`.  
-</div>
-
-</br>
-
 *** 
 
 
-## 9.2. Diviser le contenu de cellules multivariées
+## 8.1. Diviser le contenu de cellules multivariées
 
 - **Deux options: **  
   1. En divisant le contenu des cellules en **plusieurs colonnes**: `Éditer la colonne -> Diviser en plusieurs colonnes`  
@@ -1057,6 +862,7 @@ Transformer la variable *Ligne*
 - Supprimer le mot ligne:  
 
   - `Éditer les cellules -> remplacer` -> "Ligne" par: ne rien saisir dans l'encadré.    
+
 
 - Cliquer ensuite directement sur `edit` sur une cellule de la colonne de *Ligne* -> remarquer la présence d'un espace, supprimer l'espace et fermer. 
 
@@ -1101,37 +907,10 @@ Diviser par les longueurs de champs la colonne `Numéro d'incident` pour en cré
 
 ***
 
-</br>
+## 8.2. Fusionner le contenu de plusieurs colonnes
 
-### Rechercher/remplacer un caractère dans toutes les colonnes avec GREL
+## Exercice   
 
-## Exercice
-
-<div class = "box2">
-Remplacer les valeurs "#" dans toute la base de données par "aucun"**   
-</div>
-<div class = "box1">
-- Quel problème ce remplacement peut-il provoquer?    
-- Explorer l'impact des trois expressions de remplacement suivantes:  
-
-1. `value.replace("#", "aucun")`   
-(remplace le caractère #: aucun et aucunN/D )     
- 
-2. `if(value.contains("#"),"aucun", value)`   
-(remplace les cellules des # et #ND par aucun)  
-
-3. `if(value==("#"),"aucun", value)`     
-(remplace seulement les cellules #, pas les #ND par aucun) 
-</div>
-
-</br>
-
-***
-
-
-## 9.3. Fusionner le contenu de plusieurs colonnes
-
-### Défit   
 Nous souhaitons calculer la durée des incidents. Pour ce faire nous créerons deux colonnes:  
 - Une colonne fusionnant les colonnes: *Année civile*, *Mois calendrier*, *jours du mois* et *Heure de l'incident*.  
 - Une colonne fusionnant les colonnes: *Année civile*, *Mois calendrier*, *jours du mois* et *Heure de l'incident*.  
@@ -1144,7 +923,6 @@ Lorsque l'on fusionne des colonnes, il faut porter une attention particulière a
 
 </br>
 
-## Exercice
 
 <div class = "box2">
 1. **Fonction automatisée** -> Fusionner les colonnes: *Année civile*, *Mois calendrier*, *jours du mois* et *Heure de l'incident*
@@ -1186,7 +964,7 @@ Calculer la durée de l'incident
 <div class = "box1">
 
 - Créer une nouvelle colonne vide:  
-`Edit Column > Add Column Based on This Column ` -> Choisir un nouveau nom et le contenu: "".  
+`Éditer la colonne > Ajouter une colonne en fonction de cette colonne ` -> Choisir un nouveau nom et le contenu: "".  
 
 - Pour calculer une différence entre date: `diff(date1, date2, "results format")`.    
 
@@ -1197,16 +975,252 @@ Calculer la durée de l'incident
 
 ***
 
+# 9. Le langage GREL 
+
+
+- *Google Refine Expression Language* 
+- Langage similaire à javascript et formules excel.    
+- Permet la rédaction d'expressions visant à manipuler/transformer le contenu des cellules d'une colonne.  
+(Voir la [documentation officielle](https://docs.openrefine.org/manual/grel) pour plus de détails)  
+- Langage composé de [fonctions](https://docs.openrefine.org/manual/grelfunctions) et d'[objets](https://docs.openrefine.org/manual/expressions#variables).
+
+</br>
+
+##  9.1. GREL - Principes de base 
+
+#### Utilise une syntaxe particulière pour cibler les objets (variables):  
+- Contenu de colonne actuelle: `value`.     
+- Contenu d'une autre colonne: `cells['nom-colonne'].value`.    
+- Contenu textuel: "guillemet simple ou double".    
+
+</br>
+
+#### Deux formats de notation:  
+- Imbriquée: (trim(toLowercase(value)).    
+- **Séquentielle**: value.toLowercase().trim() (plus facile à lire).    
+
+</br>
+
+#### Différents types de fonctions:  
+- Les fonctions et leur comportement dépendront du type de données manipulées.  
+- [Certaines fonctions](https://docs.openrefine.org/manual/grelfunctions#slicea-n-from-n-to-optional) permettent de transformer le contenu de cellules en `arrays` (liste d'éléments) et de les manipuler.  
+- [Certaines fonctions](https://docs.openrefine.org/manual/expressions#regular-expressions) permettent d'utiliser les [expressions régulières](#expression).  
+
+</br>
+
+#### Différents types d'opérateurs:  
+Selon le format, différents types d'**opérateurs** peuvent être utilisés entre les valeurs:  
+	- Opérateurs arithmétiques: +, -, *, /  
+	- Opérateurs booléens: ==, >, <  
+  
+**Par exemple:**
+
+- Le "+" entre deux contenus numériques = somme
+
+![](images/OR30.jpg)
+
+- Le "+" avec un contenu textuel = concaténation
+
+![](images/OR31.jpg)
+
+</br>
+
+***  
+
+##  9.2. GREL - L'indexation, la sélection et la manipulation d'éléments:  
+
+- Chaque caractère composant la valeur d'une cellule est ordonné dans un index **à partir de 0** (1er élément).
+- Chaque élément d'un *array* est ordonné dans un index **à partir de 0** (1er élément) et peut être ciblé grâce aux `[ ]`.  
+- L'opérateur `[ ]` permet de cibler/sélectionner des chaines de caractères ou des sous-éléments spécifiques. 
+
+</br>
+
+### Exemple - Fonction split()   
+
+> `value[0,8]` -> Montréal (Québec) = ?   
+> `value.split("(")[1]` -> Montréal (Québec) = ?  
+> `value.split("(")[1].split(")")[0]` -> Montréal (Québec) = ?^[Montréal / Québec) / Québec]  
+
+</br>
+
+## Exercice - Fonction replace()  
+
+<div class = "box1">
+
+`ISBN: 978-2-13-082930-0`
+
+Conserver seulement le chiffre de l'ISBN dans les traits d'union?^[value[5,24].replace("-", "")]
+
+Indices:  
+
+- `value`  
+- `replace()`  ("quelque chose", "par le vide")
+
+</div>
+
+</br>
+
+### Exemple - Fonction slice()  
+
+`Martinolli, Pascal; Gabrielli, Nino; Fortier, Catherine; Bellemare, Pascale`
+
+![](images/OR25.jpg)
+
+Éditer les cellules -> Transformer -> `value.split("; ").slice(1).join("\n")` 
+
+![](images/OR39.jpg)
+
+- `split()`: divise la cellule en éléments distincts sur la base du séparateur ;
+- `slice()` : conserve les éléments à partir de l'élément 1 donc supprime le 0. 
+- `join()`: les joints avec le séparateur ;
+
+</br>
+
+## Exercice - Fonction sort()  
+
+<div class = "box1">
+
+Mettre les noms en ordre alphabétique et les joindre avec une virgule.^[value.split("; ").sort().join(", ")]
+
+Indices:  
+
+- `split()`: divise la cellule en éléments distincts sur la base du séparateur  
+
+- `sort()`: tri les éléments  
+
+- `join()`: les joints avec le séparateur  
+
+
+</div>
+
+
+</br>
+
+### Exemple - Fonction reverse()  
+
+Éditer les cellules -> Transformer -> `value.split("; ")[1].split(", ").reverse().join(" ") + " est le meilleur"` 
+
+![](images/OR38.jpg)
+
+- `split()`: divise la cellule en éléments distincts sur la base du séparateur ; et retient le deuxième élément
+- `split()`: divise cet élément sur le séparateur ,
+- `reverse()`: inverse l'ordre des deux éléments
+- `join()`: rattache les deux éléments divisé avec un espace
+
+</br>
+
+***
+
+## 9.3. Créer des facettes avec GREL
+
+## Exercices
+
+<div class = "box1">
+
+Créer une facette pour lister les cas selon l'*heure de l'incident* seulement, sans les minutes (2 premiers caractères). Comment faire afficher les minutes seulement?^[value[3,5] ou value.substring(3)] 
+
+`value[0,2]`   
+
+</div>
+
+</br>
+
+<div class = "box1">
+
+Créer une facette sur la colonne *Code de lieu* pour identifier les cas dont la valeur commence par "Côte"  
+
+`value.startsWith(“Côte”)`    
+
+</div>
+
+</br>
+
+<div class = "box1">
+
+Créer une facette pour identifier les cas dont la valeur dans la colonne *Cause primaire* est la même que dans la colonne *Cause secondaire*
+
+`value == cells["Cause secondaire"].value`   
+
+</div>
+
+</br>
+
+***
+
+
+## 9.4. Rechercher/remplacer un caractère dans toutes les colonnes avec GREL
+
+## Exercice
+
+<div class = "box2">
+Remplacer les valeurs "#" dans toute la base de données par "aucun"**   
+</div>
+<div class = "box1">
+- Quel problème ce remplacement peut-il provoquer?    
+- Explorer l'impact des trois expressions de remplacement suivantes:  
+
+1. `value.replace("#", "aucun")`   
+(remplace le caractère #: aucun et aucunN/D )     
+ 
+2. `if(value.contains("#"),"aucun", value)`   
+(remplace les cellules des # et #ND par aucun)  
+
+3. `if(value==("#"),"aucun", value)`     
+(remplace seulement les cellules #, pas les #ND par aucun) 
+</div>
+
+</br>
+
+
+***
+
+## 9.5. Créer et copier des colonnes
+
+</br>
+
+`Éditer la colonne -> Ajouter une colonne en fonction de cette colonne`
+
+![](images/OR32.jpg)
+
+
+## Exercice
+
+<div class = "box2">
+Créer une nouvelle colonne sur la base de la colonne *Jour de la semaine* indiquant si le jour est en semaine ou fin de semaine.
+</div>
+<div class = "box1">
+`if(value > 5,"fin de semaine","semaine")`
+</div>
+
+</br>
+
+<div class = "box2">
+Créer une colonne à partir de la colonne *heure de l'incident* en ne conservant que l'heure, sans les minutes, et rajouter la lettre h pour donner par exemple ceci: 15:12  ->  15h.  
+</div>
+<div class = "box1">
+`value.split(':')[0] + "h"`.  
+
+Ou
+
+`value.splitByLengths(2)[0]`.  
+</div>
+
+</br>
+
+
+***
+
 
 # 10. Les expressions régulières {#expression}
 
-</br>
+## 10.1. Caractéristiques  
 
 - L'usage de GREL permet des manipulations de données beaucoup plus avancées que l'utilisation des fonctions automatisées, mais OpenRefine permet en plus de combiner l'utilisation des expressions régulières avec GREL pour en augmenter la puissance. 
 - Les expressions régulières permettent, à partir d'une syntaxe spécifique, d'identifier des patterns dans un contenu.  
 - Lorsqu'utilisées avec GREL, ces expressions permettent donc d'identifier et d'extraire des contenus très précis pour ensuite les manipuler selon les besoins.  
 - Elles peuvent être utilisées à différents endroits dans OpenRefine et doivent toujours être entourées de `/ /`: filtres, facettes, fenêtre GREL.
 - Certaines expressions peuvent s'écrire en GREL avec ou sans regex.  
+- Les fonctions GREL qui acceptent les expressions régulières: `replace`, `match`, `partition`, `rpartition`, `split`.
 
 </br>
 
@@ -1230,7 +1244,7 @@ Pour en savoir plus:
 
 ***
 
-### La syntaxe de base:   
+## 10.2. La syntaxe de base:   
 
 La syntaxe est composée d'éléments permettant de  cibler des caractères précis et de définir leur emplacement et leur occurrence.
 
@@ -1239,11 +1253,11 @@ La syntaxe est composée d'éléments permettant de  cibler des caractères pré
 +=======================================================+================================================+
 | `.` : N’importe quoi                                  | `+` : 1 ou plus                                 |  
 +-------------------------------------------------------+------------------------------------------------+
-| `\w` : n'importe quel mot, chiffre ou _    (`\W` : sauf)                       | `*` : 0 ou plus                                 |    
+| `\w` : n'importe quel mot, chiffre ou _  (`\W` : sauf)     | `*` : 0 ou plus                                 |    
 +-------------------------------------------------------+------------------------------------------------+
 | `\d` : Chiffres      (`\D` : sauf)                    | `?` : 0 ou un                                   |   
 +-------------------------------------------------------+------------------------------------------------+
-| `\s` : Espaces         (`\S` : sauf)                  | `{2}` : Nombre exact                            | 
+| `\s` : Espaces         (`\S` : sauf)                  | `{2}` : Nombre exact (ici 2)                            | 
 +-------------------------------------------------------+-------------------------------------------------+
 | `[A-Z]` : Majuscules     (`[^A-Z]` : sauf)            | `{,4}` : Entre 0 et 4 incl.                     |                 
 +-------------------------------------------------------+-------------------------------------------------+
@@ -1295,8 +1309,9 @@ La syntaxe est composée d'éléments permettant de  cibler des caractères pré
 
 ***
 
+## Exercice
 
-### Exercice: Manipuler les éléments de références bibliographiques
+### Manipuler les éléments de références bibliographiques
 
 ![](images/OR36.jpg)
 
@@ -1318,14 +1333,16 @@ La syntaxe est composée d'éléments permettant de  cibler des caractères pré
 
 7. Examiner l'impact de ces deux commandes **GREL + regex**. Qu'est-ce qui se passe?
 
-</br>
-**Éditer les cellules -> Transformer: **
+- Éditer les cellules -> Transformer: 
 
 > `value.find(/\(.*?\)/)`  
 
 > `value.find(/\(.*?\)/).join(',').replace("("," ").replace(")", "")`  
 
+-> Attention aux [quantificateurs "gourmands"](https://docs.microsoft.com/en-us/dotnet/standard/base-types/quantifiers-in-regular-expressions#greedy-and-lazy-quantifiers) (vs paresseux)
 </br>
+
+Éditer la colonne -> Ajouter une colonne en fonction de cette colonne:  
 
   - Créer la colonne Auteur : `value.partition("(")[0]` ou `value.split("(")[0]`   
   - Créer la colonne Année: `value.partition("(")[2].partition(")")[0]`   ou avec regex: `value.match(/.*?(\d{4}).*?/)[0]`.    
@@ -1412,7 +1429,7 @@ Avec regex:
 ***
 
 
-# 13. Pour faire durer le plaisir!
+# 13. Quelques recettes pour faire durer le plaisir
 
 <div class = "box2">
 #### Extraire seulement certains caractères selon leur position
@@ -1506,7 +1523,7 @@ Diviser le contenu d'une cellule sur un terme x et conserver le contenu précéd
 - value.partition("terme")[0]
 
 - value.partition(" to ")[2].partition(" on ")[0]
-http://www.davidhuynh.net/spaces/nicar2011/tutorial.pdf
+
 </div>
 
 </br>
@@ -1617,9 +1634,9 @@ Créer une nouvelle colonne avec les trois premiers caractères seulement
 
 - cells['Symptome'].value[0,3]
 
-- Transformer le contenu d'une colonne en concaténant le contenu d'une autre  
+Transformer le contenu d'une colonne en concaténant le contenu d'une autre  
 
-value + ' ' + cells['street-type'].value
+- value + ' ' + cells['street-type'].value
 </div>
 
 </br>
@@ -1660,13 +1677,23 @@ Faire plusieurs remplacements d'un coup
 </div>
 <div class = "box1">
 
-**Supprime “S” du début de la cellule  **
+Supprime “S” du début de la cellule  
 
 - value.replace(/^S/,"") [regex ^ indique le début d'une cellule]
 
-**Supprime "." à la fin de la cellule  **
+Supprime "." à la fin de la cellule  
 
 - value.replace(/\.$/,"") [regex $ indique la fin d'une cellule]
+</div>
+
+</br>
+
+<div class = "box1">
+
+Modifier/supprimer la ponctuation
+
+- value.replace(/\p{Punct}/,' ')
+
 </div>
 
 </br>
@@ -1713,15 +1740,18 @@ Extraire seulement une partie d'une date
 
 - [Grateful Data](https://github.com/scottythered/gratefuldata/wiki)  
 
-- [GREL Recipes](https://github.com/OpenRefine/OpenRefine/wiki/Recipes)
+- [David Huynh, Google Refine](http://www.davidhuynh.net/spaces/nicar2011/tutorial.pdf)
+
+- [Open Refine FOr Librarians](http://liwong.blogspot.com/)
 
 - [Cheat Sheet: Regular Expressions & GREL](https://code4libtoronto.github.io/2018-10-12-access/GoogleRefineCheatSheets.pdf)
 
+- *Recipes*: [Open Refine for Librarians](http://liwong.blogspot.com/search/label/recipe)
+
+- [GREL Recipes](https://github.com/OpenRefine/OpenRefine/wiki/Recipes)
+
 - [Etc!](https://github.com/OpenRefine/OpenRefine/wiki/External-Resources)
 
--[Open Refine FOr Librarians](http://liwong.blogspot.com/)
-
-- Recipes: [Open Refine for Librarians](http://liwong.blogspot.com/search/label/recipe)
 
 <style>
 .right {
