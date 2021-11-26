@@ -341,7 +341,7 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
   - Dans OpenRefine, Créer un projet -> Adresses web (URLs) -> coller le lien -> Suivant.
 (Le fichier est aussi disponible sur le site [Données ouvertes Montréal](https://donnees.montreal.ca/societe-de-transport-de-montreal/incidents-du-reseau-du-metro)).     
 
-- Explorer les options d'importation -> Porter une attention particulière aux options: `Supprimer les espaces` (8 -> cocher), 	`Utiliser le caractère	" pour fermer les cellules contenant les séparateurs de colonnes` (10 -> cocher ou non), `Analyser le texte des cellules comme nombres , dates…` (11 -> décocher)
+- Explorer les options d'importation -> Porter une attention particulière aux options: `Supprimer les espaces` (8 -> cocher), 	`Utiliser le caractère	" ...` (10 -> cocher ou non), `Analyser le texte des cellules comme nombres , dates…` (11 -> décocher)
 
 - Changer le `Nom du projet` [2] et cliquer sur `Créer un projet` [4] - En cas de problème, il est possible de recommencer le processus [1].
 </div>
@@ -705,12 +705,12 @@ Expressions similaires aux formules Excel mais qui s'appliquent aux colonnes, no
 <center>  
 
 ![](images/OR23.jpg)
-
 </center>  
-    - **[8]** Le lien `changer` permet d'ouvrir une fenêtre d'édition GREL pour modifier la syntaxe de la facette.  
-    - **[9]** Pour supprimer les facettes, cliquer sur le x de chaque fenêtre ou `Tout supprimer`.  
-    - Pour conserver les fenêtres mais supprimer les sélections qui y ont été faites, cliquer sur `réintialiser` sur chaque fenêtre ou `Tout réinitialiser` **[9]**.  
-    - **[10]** Option `Groupe`: Outils proposant différents algorithmes de similarité permettant de regrouper des catégories semblables.  
+
+  - **[8]** Le lien `changer` permet d'ouvrir une **fenêtre d'édition GREL** pour modifier la syntaxe de la facette.  
+  - **[9]** Pour supprimer les facettes, cliquer sur le x de chaque fenêtre ou `Tout supprimer`.  
+  - Pour conserver les fenêtres mais supprimer les sélections qui y ont été faites, cliquer sur `réintialiser` sur chaque fenêtre ou `Tout réinitialiser` **[9]**.  
+  - **[10]** Option `Groupe`: Outils proposant différents algorithmes de similarité permettant de regrouper des catégories semblables.  
 
 
 ### Trois formats de facettes:
@@ -770,11 +770,12 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 **Filtrer** 
 
 - Quel est le *symptome* le plus fréquent? Sélectionner cette valeur.  
-- Sur quelle *Ligne* ce *symptome* s'est produit le plus souvent? Sélectionner cette valeur.  
 - Ces événements ont-ils nécessité une *évacuation*?^[Clientèle / Ligne orange / Oui 17]     
 
 **Éditer**  
-- Éditer la variable *évacuation* de façon à ce qu'il n'y ait que **deux valeurs** possibles: Oui et Non.  
+
+- Éditer la variable *évacuation* de façon à ce qu'il n'y ait que **deux valeurs** possibles: Oui et Non.    
+
 </div>
 
 ***
@@ -919,7 +920,7 @@ Diviser par les longueurs de champs la colonne `Numéro d'incident` pour en cré
 
 ## Exercice   
 
-Nous souhaitons calculer la durée des incidents (nécessite l'utilisation de GREL). Pour ce faire nous créerons deux colonnes:  
+Nous souhaitons calculer la durée des incidents (nécessite l'utilisation de GREL). Pour ce faire nous créerons deux colonnes pour ensuite calculer la différence entre les deux:    
 - Transformation simple automatisée: Créer une nouvelle colonne fusionnant les colonnes: *Année civile*, *Mois calendrier*, *jours du mois* et *Heure de l'incident*.  
 - Transformation avancée GREL (peut être réalisée de façon automatisée): Créer une nouvelle colonne fusionnant les colonnes: *Année civile*, *Mois calendrier*, *jours du mois* et *Heure de l'incident*.  
 
