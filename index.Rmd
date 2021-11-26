@@ -400,7 +400,7 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 
 <div class = "box1">
 - Dans la colonne *Cause primaire* cliquer dans une cellule *Autres*, éditer son contenu pour *autre* et appliquer à la cellule. 
-- Dans la colonne *Porte*, modifier le format de n'importe quelle cellule à *Nombre* et appliquer à toutes les cellules identiques.
+
 - Dans la colonne *Évacuation*, modifier le contenu d'une cellule "#" par *Non* et appliquer à toutes les cellules identiques.
 </div>
 
@@ -450,8 +450,14 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 ## Exercice
 
 <div class = "box1">
-**Transformer une colonne date de format caractère en format date**:  
+
+**Transformer une colonne de format caractère en format date**:  
 - Dans la colonne *Jour calendaire*: `Menu -> Éditer les cellules -> Transformations courantes -> En date`    
+
+**Transformer une colonne de format caractère en format nombre**:   
+- Dans la colonne *Porte*, cliquer dans une cellule, éditer le format à *Nombre* et appliquer à toutes les cellules identiques.
+- Recommencer la procédure avec le fonction *Transformations courantes*.
+
 </div>
 
 </br>
@@ -628,7 +634,7 @@ Expressions similaires aux formules Excel mais qui s'appliquent aux colonnes, no
 - Trier les valeurs des cellules comme texte de la colonne `Mois Calendrier` .   
 - Trier les valeurs des cellules comme texte de la colonne `Jour du mois`.  
 - Explorer le résultat...   
-- Supprimer le tri et recommancer la procédure avec un tri de format nombre.  
+- Supprimer le tri et recommencer la procédure avec un tri de format nombre.  
 </div>
 
 </br>
@@ -649,10 +655,11 @@ Expressions similaires aux formules Excel mais qui s'appliquent aux colonnes, no
 ## Exercice
 
 <div class = "box1">
+**Limiter la liste aux cas survenus à la station Berri entre midi et 13h.**
 - Filtrer le texte sur la colonne *Code de lieu*: "berri"  
 - Filtrer le texte sur la colonne *Heure de l'incident*: "12"  
 - Explorer les résultats  
-- Comment s'assurer d'avoir seulement les cas survenus entre 12h et 13h? Combien de lignes correspondent à ces conditions?^[12: ou expression rationnelle ^12]  
+- Comment s'assurer d'avoir seulement les cas survenus entre 12h et 13h? Combien de lignes correspondent à ces conditions?^[12: ou expression rationnelle ^12 / 48 cas]  
 - Supprimer tous les filtres.
 </div>
 
@@ -748,10 +755,11 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 - À quel *jour de la semaine* cette cause est-elle survenue le plus souvent?^[Clientèle / Blessée ou malade, Méfait volontaire, Nuisance involontaire / Méfait volontaire 781/ 5]   
 - Réinitialiser toutes les facettes.
 
+- Explorer les facettes personnalisées *Par mot* et *doublons* sur la colonne *Cause primaire*.
+
 **Éditer**  
 
-- Dans la facette *Cause primaire*, renommer la valeur #ND -> NA.  
-- Corriger la valeur "autre" pour qu'elle soit fusionnée à la valeur "Autres".  
+- Dans la facette *Cause primaire*, renommer la valeur "autre" pour qu'elle soit fusionnée à la valeur "Autres".  
 - Supprimer toutes les facettes.
 </div>
 
@@ -911,9 +919,9 @@ Diviser par les longueurs de champs la colonne `Numéro d'incident` pour en cré
 
 ## Exercice   
 
-Nous souhaitons calculer la durée des incidents. Pour ce faire nous créerons deux colonnes:  
-- Une colonne fusionnant les colonnes: *Année civile*, *Mois calendrier*, *jours du mois* et *Heure de l'incident*.  
-- Une colonne fusionnant les colonnes: *Année civile*, *Mois calendrier*, *jours du mois* et *Heure de l'incident*.  
+Nous souhaitons calculer la durée des incidents (nécessite l'utilisation de GREL). Pour ce faire nous créerons deux colonnes:  
+- Transformation simple automatisée: Créer une nouvelle colonne fusionnant les colonnes: *Année civile*, *Mois calendrier*, *jours du mois* et *Heure de l'incident*.  
+- Transformation avancée GREL (peut être réalisée de façon automatisée): Créer une nouvelle colonne fusionnant les colonnes: *Année civile*, *Mois calendrier*, *jours du mois* et *Heure de l'incident*.  
 
 </br>
 
@@ -930,7 +938,7 @@ Lorsque l'on fusionne des colonnes, il faut porter une attention particulière a
 
 <div class = "box1">
 - Année civile -> `Éditer la colonne` -> `Joindre les colonnes`.    
-- Joindre des colonnes -> Cocher les colonnes voulues.  
+- Joindre des colonnes -> Cocher les colonnes voulues et les trier selon l'ordre voulu dans la nouvelle valeur.  
 - Séparateur entre le contenu de chaque colonne: "-".    
 - Écrire le résultat dans une nouvelle colonne nommée: *Date*.    
 
@@ -1054,7 +1062,7 @@ Conserver seulement le chiffre de l'ISBN sans les traits d'union?^[value[5,24].r
 Indices :  
 
 - Deux façons de faire: `value` OU `value.split()`
-- `replace()`  ("quelque chose", "par le vide")
+- `replace()` (il faut remplacer "quelque chose", "par le vide")
 
 </div>
 
@@ -1070,9 +1078,9 @@ Indices :
 
 ![](images/OR39.jpg)
 
-- `split()`: divise la cellule en éléments distincts sur la base du séparateur ;
-- `slice()` : conserve les éléments à partir de l'élément 1 donc supprime le 0. 
-- `join()`: les joints avec le séparateur ;
+- `split()`: diviser la cellule en éléments distincts sur la base du séparateur ;
+- `slice()` : conserver les éléments à partir de l'élément 1 donc supprime le 0. 
+- `join()`: joindre avec le séparateur ;
 
 </br>
 
@@ -1084,11 +1092,11 @@ Mettre les noms en ordre alphabétique et les joindre avec une virgule.^[value.s
 
 Indices:  
 
-- `split()`: divise la cellule en éléments distincts sur la base du séparateur  
+- `split()`: diviser la cellule en éléments distincts sur la base du séparateur  
 
-- `sort()`: tri les éléments  
+- `sort()`: trier les éléments (reste vide)
 
-- `join()`: les joints avec le séparateur  
+- `join()`: joindre avec le séparateur  
 
 
 </div>
@@ -1202,7 +1210,7 @@ Créer une colonne à partir de la colonne *heure de l'incident* en ne conservan
 
 Ou
 
-`value.splitByLengths(2)[0]`.  
+`value.splitByLengths(2)[0] + "h"`.  
 </div>
 
 </br>
@@ -1339,7 +1347,8 @@ La syntaxe est composée d'éléments permettant de  cibler des caractères pré
 
 > `value.find(/\(.*?\)/).join(',').replace("("," ").replace(")", "")`  
 
--> Attention aux [quantificateurs "gourmands"](https://docs.microsoft.com/en-us/dotnet/standard/base-types/quantifiers-in-regular-expressions#greedy-and-lazy-quantifiers) (vs paresseux)
+-> Attention aux [quantificateurs "gourmands"](https://docs.microsoft.com/en-us/dotnet/standard/base-types/quantifiers-in-regular-expressions#greedy-and-lazy-quantifiers) (vs paresseux).
+
 </br>
 
 Éditer la colonne -> Ajouter une colonne en fonction de cette colonne:  
