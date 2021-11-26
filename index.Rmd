@@ -1360,10 +1360,9 @@ La syntaxe est composée d'éléments permettant de  cibler des caractères pré
   - Créer la colonne éditeur: `value.partition(").")[2].partition(").")[2]`.     
   - Créer la colonne édition: `value.partition(").")[2].partition("(")[2].partition("éd")[0]` ou avec regex: `value.match(/.*(\d+). éd.*/)[0]`.  
   - Créer la colonne volume: `value.partition("vol.")[2].partition(")")[0]` ou avec regex: `value.match(/.*vol. (\d+).*/)[0]`.  
-Avec regex:  
+Mais encore avec regex:  
 - Supprimer les lettres du prénom: `value.replace(/(\s[A-Z].\s)|(\s[A-Z].,\s)/, " ")`.  
 - Supprimer tout le contenu sauf les noms de famille: `value.replace(/(\s[A-Z].\s)|(\s[A-Z].,\s)|(et)|(,)/, " ")`.  
-</div>
 
 </br>
 
