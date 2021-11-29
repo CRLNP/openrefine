@@ -326,7 +326,7 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 
 - Pour ouvrir un fichier à partir de son poste, cliquer sur `Créer un projet` - > `Cet ordinateur` - > `sélectionner fichiers` sur son  poste -> `Suivant`.  
 
-- Une fenêtre s'ouvre ensuite pour permettre de pré-visualiser son jeu de données et de modifier, si nécessaire, les options d'importation en fonction des caractéristiques du fichier de données: modification du format de fichier s'il n'a pas été identifié correctement (5), l'encodage des caractères [UTF-8] (6), le traitement des entêtes et premières lignes (9)...
+- Une fenêtre s'ouvre ensuite pour permettre de pré-visualiser son jeu de données et de modifier, si nécessaire, les options d'importation en fonction des caractéristiques du fichier de données: modification du format de fichier s'il n'a pas été identifié correctement [5], l'encodage des caractères [UTF-8] [6], le traitement des entêtes et premières lignes [9]...
 
 </br>
 
@@ -355,32 +355,44 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 
 - L'interface est similaire à Excel mais on ne peut voir l'ensemble des lignes, la "logique" d'OpenRefine repose sur le travail en **colonnes**.
 
-- OpenRefine propose deux vues des données: `lignes` et `entrées.` Les données sont généralement présentées en mode `lignes`, c'est-à-dire chaque ligne représente une observation. Le mode `entrées` permet d'associer plusieurs lignes à une observation.
-
-- Il est donc possible de modifier la structure du fichier pour que plusieurs lignes soient associées à un seul cas en se basant sur la colonne clé (**seule la ligne originale sera numérotée**), mais doit se faire avec précautions. Pour les logiciels d'analyse, le format *tidy* (`lignes`) est à privilégier.
-
 <center>  
 
 ![](images/OR4.jpg) 
 
 </center>  
 
-1. Lien sous l'icône renvoi vers la page d'accueil/importation.
-2. Renommer le nom de son projet en tout temps.
-3. Permalien qui permet de revenir à une vue précise (affichage, tri, facettes...) du projet.
-4. Nombre de lignes/observations du fichier.
-5. Changement du mode lignes ou observations.
-6. Modifier le nombre de lignes affichées.
-7. Passer d'une page à l'autre.
-8. Ouvrir un nouvel onglet OpenRefine.
-9. Exporter le fichier en différents formats.
+<div class = "note">  
 
-</br>
+[1] Lien sous l'icône renvoi vers la page d'accueil/importation.  
+[2] Renommer le nom de son projet en tout temps.  
+[3] Permalien qui permet de revenir à une vue précise (affichage, tri, facettes...) du projet.  
+[4] Nombre de lignes/observations du fichier.  
+[5] Changement du mode lignes ou observations.  
+[6] Modifier le nombre de lignes affichées.  
+[7] Passer d'une page à l'autre.  
+[8] Ouvrir un nouvel onglet OpenRefine.  
+[9] Exporter le fichier en différents formats.  
+
+</div>  
+
+</br>  
+
+## 5.1 Deux vues des données
+
+- OpenRefine propose deux vues des données: `lignes` et `entrées.` Les données sont généralement présentées en mode `lignes`, c'est-à-dire chaque ligne représente une observation. Le mode `entrées` permet d'associer plusieurs lignes à une observation.
+
+- Il est donc possible de modifier la structure du fichier pour que plusieurs lignes soient associées à un seul cas en se basant sur la colonne clé (**seule la ligne originale sera numérotée**), mais doit se faire avec précautions. Pour les logiciels d'analyse, le format *tidy* (`lignes`) est à privilégier.
+
+<center>  
+
+![](images/OR40.jpg)
+
+</center>  
 
 ***
 
 
-## 5.1. L'édition de cellules
+## 5.2. L'édition de cellules
 
 - Il est possible d'éditer manuellement le contenu de cellules individuelles en se plaçant sur chacune et en cliquant `edit`, mais OpenRefine privilégie le **travail en lot par colonnes** pour filtrer, trier, transformer.
 
@@ -409,7 +421,7 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 ***
 
 
-## 5.2. Format des données  
+## 5.3. Format des données  
 
 
 #### Trois formats de base: 
@@ -417,12 +429,10 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
   2. Nombre
   3. Date (norme ISO-8601 YYYY-MM-DDTHH:MM:SSZ)*
   
-
   
 #### Deux formats découlant d'actions: 
   - Erreur (format attribué suite à une erreur de transformation)  
   - Null**
-
 
 
 #### Deux autres types particuliers découlant de manipulations
@@ -438,7 +448,6 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 - Pour qu'une cellule soit reconnue comme date, elle sera transformée au format *ISO-8601-compliant*.
 - Possible de modifier ce format pour qu'il soit plus facilement lisible à l'exportation.
 
-</br>
 
 ##### ** Format "manquant"
 
@@ -477,7 +486,7 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 ***
 
 
-## 5.3. La gestion des lignes et colonnes
+## 5.4. La gestion des lignes et colonnes
 
 #### La gestion des colonnes peut se faire:
 
@@ -515,7 +524,7 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 ***
 
 
-## 5.4. Historique (Undo/Redo)
+## 5.5. Historique (Undo/Redo)
 
 - Toutes les actions sont enregistrées (log de ses manipulations) et peuvent être annulées en reculant étape par étape dans l'historique.  
 - La première action d'un historique est la création du projet.  
@@ -709,11 +718,12 @@ Expressions similaires aux formules Excel mais qui s'appliquent aux colonnes, no
 ![](images/OR23.jpg)
 </center>  
 
+<div class = "note">
   - **[8]** Le lien `changer` permet d'ouvrir une **fenêtre d'édition GREL** pour modifier la syntaxe de la facette.  
   - **[9]** Pour supprimer les facettes, cliquer sur le x de chaque fenêtre ou `Tout supprimer`.  
   - Pour conserver les fenêtres mais supprimer les sélections qui y ont été faites, cliquer sur `réintialiser` sur chaque fenêtre ou `Tout réinitialiser` **[9]**.  
   - **[10]** Option `Groupe`: Outils proposant différents algorithmes de similarité permettant de regrouper des catégories semblables.  
-
+</div> 
 
 ### Trois formats de facettes:
 
@@ -833,7 +843,6 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 
 ![](images/OR24.jpg)
 
-</br>
 
 <div class = "note">
 Pour voir la syntaxe correspondant à chaque fonction de `transformations courantes`, appliquer la fonction sur une colonne puis aller voir l'historique. Par exemple: `value.toNumber()`, `value.toTitlecase()`, `value.toNumber()`, `value.toUppercase()`, `value.trim()`... </div>
@@ -1049,8 +1058,8 @@ Selon le format, différents types d'**opérateurs** peuvent être utilisés ent
 ### Exemple - Fonction split()   
 
 > `value[0,8]` -> Montréal (Québec) = ?   
-> `value.split("(")[1]` -> Montréal (Québec) = ?  
-> `value.split("(")[1].split(")")[0]` -> Montréal (Québec) = ?
+> `value.split("(")[1]` -> Montréal (Québec) = ?   
+> `value.split("(")[1].split(")")[0]` -> Montréal (Québec) = ?  
 > `value[0] + value[3] + value[7]` -> Montréal (Québec) = ?^[Montréal / Québec) / Québec / Mtl]  
 
 </br>
