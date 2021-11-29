@@ -223,13 +223,13 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 
 # 3. Installation et fonctionnement général
 
+- Le fonctionnement d'OpenRefine peut être un peu déroutant au départ car il n'y a pas d'installation en bonne et due forme comme pour un logiciel régulier.
+
 - [Télécharger et dézipper](https://openrefine.org/download.html) le logiciel dans un dossier de son choix.
 
 - Créé en langage Java [donc nécessite l'installation de Java (64 bits de préférence)](https://www.java.com/en/download/).
 
 - Navigateurs à privilégier: Chrome, Opera, Edge. Firefox peut poser problème (ne fonctionne pas dans IE).  
-
-- Le fonctionnement d'OpenRefine peut être un peu déroutant au départ car il n'y a pas d'installation en bonne et due forme comme pour un logiciel régulier.
 
 - Pour démarrer le logiciel, cliquer sur le fichier `` `openrefine.exe` `` ou `refine.bat`. Il est utile de faire un clic-droit sur le fichier .exe pour l'épingler dans sa barre de tâches (sur Mac, déplacer l'icône OpenRefine dans le dossier d'applications et double cliquer sur celle-ci).
 
@@ -289,7 +289,7 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 
 - Pour changer la langue de l'interface au français, cliquer sur l'onglet `Langue` dans le menu de gauche.  
 
-- Le fichier peut être créé à partir de différentes sources: `Cet ordinateur` (poste local), `Adresses web (URLs)`, `Presse-papier` (copié-collé), `Google data` (Google sheets)...) et en différents formats (.csv, .txt, .xml, .xls, .JSON, .zip et non tar... (certaines extensions permettent l'usage d'autres formats comme rdf).  
+- Le fichier peut être créé à partir de différentes sources: `Cet ordinateur` (poste local), `Adresses web (URLs)`, `Presse-papier` (copié-collé), `Google data` (Google sheets)...) et en différents formats (.csv, .txt, .xml, .xls, .JSON, .zip... (certaines extensions permettent l'usage d'autres formats comme rdf).  
 
 <center>  
 
@@ -341,7 +341,7 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
   - Dans OpenRefine, Créer un projet -> Adresses web (URLs) -> coller le lien -> Suivant.
 (Le fichier est aussi disponible sur le site [Données ouvertes Montréal](https://donnees.montreal.ca/societe-de-transport-de-montreal/incidents-du-reseau-du-metro)).     
 
-- Explorer les options d'importation -> Porter une attention particulière aux options: `Supprimer les espaces` (8 -> cocher), 	`Utiliser le caractère	" ...` (10 -> cocher ou non), `Analyser le texte des cellules comme nombres , dates…` (11 -> décocher)
+- Explorer les options d'importation -> Porter une attention particulière aux options: `Supprimer les espaces` (8 -> cocher), 	`Utiliser le caractère	" ...` (10 -> **cocher**), `Analyser le texte des cellules comme nombres , dates…` (11 -> décocher)
 
 - Changer le `Nom du projet` [2] et cliquer sur `Créer un projet` [4] - En cas de problème, il est possible de recommencer le processus [1].
 </div>
@@ -655,7 +655,9 @@ Expressions similaires aux formules Excel mais qui s'appliquent aux colonnes, no
 ## Exercice
 
 <div class = "box1">
-**Limiter la liste aux cas survenus à la station Berri entre midi et 13h.**
+
+**Limiter la liste aux cas survenus à la station Berri entre midi et 13h.**  
+
 - Filtrer le texte sur la colonne *Code de lieu*: "berri"  
 - Filtrer le texte sur la colonne *Heure de l'incident*: "12"  
 - Explorer les résultats  
@@ -877,7 +879,7 @@ Transformer la variable *Ligne*
 
 - Rafraichir la facette et observer l'impact. 
 
-- Remarquer l'impact de l'espace dans la facette. Ces espaces peuvent être supprimés grâce à la fonction: `Éditer les cellules -> Transformations courantes -> Supprimer les espaces de début et de fin`.   
+- Remarquer l'impact de l'espace dans la facette. Ces espaces peuvent être supprimés grâce à la fonction: `Éditer les cellules -> Transformations courantes -> Supprimer les espaces de début et de fin`. 
 - Remplacer les couleurs de ligne par leur numéro directement dans la facette.   
 </div>
 
@@ -1020,7 +1022,7 @@ Calculer la durée de l'incident
 #### Différents types d'opérateurs:  
 Selon le format, différents types d'**opérateurs** peuvent être utilisés entre les valeurs:  
 	- Opérateurs arithmétiques: +, -, *, /  
-	- Opérateurs booléens: ==, >, <  
+	- Opérateurs de comparaison: ==, >, <  
   
 **Par exemple:**
 
@@ -1048,7 +1050,8 @@ Selon le format, différents types d'**opérateurs** peuvent être utilisés ent
 
 > `value[0,8]` -> Montréal (Québec) = ?   
 > `value.split("(")[1]` -> Montréal (Québec) = ?  
-> `value.split("(")[1].split(")")[0]` -> Montréal (Québec) = ?^[Montréal / Québec) / Québec]  
+> `value.split("(")[1].split(")")[0]` -> Montréal (Québec) = ?
+> `value[0] + value[3] + value[7]` -> Montréal (Québec) = ?^[Montréal / Québec) / Québec / Mtl]  
 
 </br>
 
@@ -1062,7 +1065,7 @@ Conserver seulement le chiffre de l'ISBN sans les traits d'union?^[value[5,24].r
 
 Indices :  
 
-- Deux façons de faire: `value` OU `value.split()`
+- Deux façons de faire: `value[]` OU `value.split()`
 - `replace()` (il faut remplacer "quelque chose", "par le vide")
 
 </div>
