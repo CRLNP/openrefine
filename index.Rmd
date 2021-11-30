@@ -92,7 +92,7 @@ opts_knit$set(width=75)
 ***
 
 
-Avant d'utiliser ses données dans le logiciel de son choix, le nettoyage de ses données peut donc inclure de nombreuses tâches comme:
+Avant d'utiliser un fichier de données dans son logiciel de choix, son nettoyage peut donc inclure de nombreuses tâches comme:
 
 <div class = "right">
 <img src="images/bottle.png" width="175px" />
@@ -117,11 +117,11 @@ Avant d'utiliser ses données dans le logiciel de son choix, le nettoyage de ses
 
 # 2. Pourquoi OpenRefine?
 
-- Plusieurs langages de programmation et outils d'analyse ou de gestion de données peuvent être utilisés, mais OpenRefine a été créé spécifiquement pour faire le ménage!
+- Plusieurs langages de programmation et outils d'analyse ou de gestion de données peuvent être utilisés, mais OpenRefine a été créé spécifiquement pour faire le ménage.
 
 - Plus facile que R et plus efficace qu'Excel.
 
-- Permet de facilement identifier et de corriger en lot des données incomplètes, manquantes, erronées, incohérentes, non pertinentes, mal formatées, qu'elles soient numériques ou textuelles => sauve temps et énergie.
+- Permet de facilement identifier et de corriger en lot des données incomplètes, manquantes, erronées, incohérentes, non pertinentes, mal formatées, qu'elles soient numériques ou textuelles.
 
 
 <center>   
@@ -209,7 +209,7 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 
 - Associe la facilité d'usage d'un logiciel comme Excel à la puissance d'outils de programmation et d'algorithmes.
 
-- Usage de l'**interface graphique** et/ou **scripts GREL** (*Google Refine Expression Language*): propose un ensemble de fonctions automatisées donc ne nécessite à la base aucune compétence en programmation ou analyse, mais l'usage du langage permet d'aller beaucoup plus loin.
+- Usage de l'**interface graphique** et/ou de **scripts GREL** (*Google Refine Expression Language*) et d'expressions régulières: propose un ensemble de fonctions automatisées donc ne nécessite à la base aucune compétence en programmation, mais l'usage du langage permet d'aller beaucoup plus loin.
 
 - Particulièrement puissant pour le nettoyage de table de données avec du contenu textuel.
 
@@ -308,7 +308,7 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 
 - L'onglet `Ouvrir un projet` permet:
   - D'accéder et d'ouvrir tous les projets enregistrés localement.
-  - D'éditer ses métadonnées.
+  - D'éditer ses métadonnées (lien `Détails`).
   - D'accéder au dossier de travail (défini par défaut) où OpenRefine stocke les archives des projets enregistrés par le biais du lien `Parcourir le dossier de l'espace de travail`.
 
 <center>  
@@ -377,6 +377,8 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 
 </br>  
 
+***
+
 ## 5.1 Deux vues des données
 
 - OpenRefine propose deux vues des données: `lignes` et `entrées.` Les données sont généralement présentées en mode `lignes`, c'est-à-dire chaque ligne représente une observation. Le mode `entrées` permet d'associer plusieurs lignes à une observation.
@@ -423,6 +425,11 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 
 ## 5.3. Format des données  
 
+- À l'importation d'un fichier, chaque cellule se verra attribuer un format.  
+- Par défaut, le contenu des cellules est de format chaînes.   
+- Le contenu des cellules reconnu comme numérique et date sera de couleur verte.   
+- Le format peut être modifié de différentes façons: `edit`, `Transformations courantes`, Fenêtre GREL.   
+- Ce format aura un impact sur les actions possibles.   
 
 #### Trois formats de base: 
   1. Chaîne de caractères
@@ -441,6 +448,7 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 
 </br>
 
+<div class = "note">  
 ##### * Format date
 
 - Selon les besoins, les dates peuvent être traitées sous forme de `texte`, de `nombre` ou `date` (le format date est surtout nécessaire pour les calculs de dates).
@@ -453,6 +461,7 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 
 - OpenRefine fait une distinction entre les **cellules vides avec espaces blancs** (qui ne sont pas vides!), les **valeurs vides** (chaine de longueur 0), et les **valeurs "null"** (type spécial qui n'est pas une chaine de caractères). Les *vides* et les *null* sont aussi considérés comme *Blank*.
 - Plusieurs fonctions automatisées sous `Facettes` et `Éditer les cellules` permettent de gérer ces types de valeurs.
+</div>
 
 </br>
 
@@ -472,13 +481,8 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 </br>
 
 <div class = "note">
-- À l'importation d'un fichier, chaque cellule se verra attribuer un format. 
-- Par défaut, le contenu des cellules est de format chaînes.  
-- Le contenu des cellules reconnu comme numérique et date sera de couleur verte.  
-- Le format peut être modifié de différentes façons: Bouton `edit`, `Transformations courantes`, Fenêtre GREL.  
-- Ce format aura un impact sur les actions possibles.  
-- Le changement de format par édition directe d'une cellule est une opération distincte de la transformation du contenu. La première opération arrive parfois à changer des formats que la transformation ne peut faire.
-- Pour plus d'information sur les formats, voir la [documentation officielle](https://docs.openrefine.org/manual/exploring).  
+
+- Le changement de format par édition directe d'une cellule est une opération distincte de la transformation du contenu. La première opération arrive parfois à changer des formats que la transformation ne peut faire. Pour plus d'information sur les formats, voir la [documentation officielle](https://docs.openrefine.org/manual/exploring).  
 </div>
 
 </br>
@@ -490,13 +494,12 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 
 #### La gestion des colonnes peut se faire:
 
-- Sur chaque colonne: 
+- **Sur chaque colonne**: 
   - Fonctions sous `Éditer la colonne -> Déplacer ... / Renommer / Supprimer`   
   - Fonctions sous `Aperçu -> Masquer... `   
 
-</br>
 
-- Sur la colonne `Toutes`:     
+- **Sur la colonne `Toutes`**:     
   - `Éditer les colonnes -> Retrier-supprimer, gestion des valeurs consécutives`    
   - `Aperçu -> Afficher-masquer`...  
 
@@ -561,8 +564,6 @@ Open Refine permet de travailler de **deux façons**:
 
 2. En rédigeant ses propres [expressions](https://docs.openrefine.org/manual/expressions) avec le **langage GREL**.  
 
-  - Même lorsque l'on utilise les fonctions automatisées, il est possible d'en modifier le fonctionnement en éditant directement la syntaxe GREL correspondante. 
-
 </br>
 
 ## 6.1. Utiliser les fonctions automatisées:
@@ -575,7 +576,6 @@ Open Refine permet de travailler de **deux façons**:
 
 **Menu et fonctions de chaque colonne-variable**
 
-</br>
 
 ![](images/OR12.jpg){width=90%}
 
@@ -599,9 +599,9 @@ Expressions similaires aux formules Excel mais qui s'appliquent aux colonnes, no
 
 ![](images/OR14.jpg)
 
-</br>
 
-**Le langage GREL peut s'utiliser de différentes façons:**  
+
+**Le langage GREL s'utilise dans des fenêtres de syntaxe accessibles à partir de différentes fonctions sur l'interface :**  
 
 - En créant des facettes personnalisées : `Facette -> Facette textuelle personnalisée`.  
 
@@ -609,9 +609,11 @@ Expressions similaires aux formules Excel mais qui s'appliquent aux colonnes, no
 
 - En créant une nouvelle colonne: `Éditer la colonne -> Ajouter une colonne basée sur cette colonne`.  
 
+- En éditant la syntaxe des fonctions automatisées (bouton `changer` dans les facettes).  
+
 </br>
 
-**Les filtres et les transformations plus complexes peuvent aussi nécessiter l'usage d'[expressions régulières (regex)](https://regex101.com/)**
+-> Pour des filtres et des transformations plus complexes, GREL permet l'utilisation d'[expressions régulières (regex)](https://regex101.com/)**
 
 </br>
 
@@ -703,13 +705,13 @@ Expressions similaires aux formules Excel mais qui s'appliquent aux colonnes, no
 
 </br>
 
-### Deux types de facettes:
+### Types de facettes:
 
   - Les facettes automatisées **[1]**.   
   </br>
   - Les facettes personnalisées **[2]**.  
   </br>
-    - Il est aussi possible de créer ses propres facettes grâce au langage GREL pour définir des conditions de sélection/filtre très précises **[3]** (on parle encore ici de *facettes personnalisées*, mais elles doivent être rédigées manuellement).
+  - Il est aussi possible de créer ses propres facettes grâce au langage GREL pour définir des conditions de sélection/filtre très précises **[3]** (on parle encore ici de *facettes personnalisées*, mais elles doivent être rédigées manuellement).
 
 </br>
 
@@ -725,7 +727,7 @@ Expressions similaires aux formules Excel mais qui s'appliquent aux colonnes, no
   - **[10]** Option `Groupe`: Outils proposant différents algorithmes de similarité permettant de regrouper des catégories semblables.  
 </div> 
 
-### Trois formats de facettes:
+### Formats de facettes:
 
 On retrouve également différents **formats de facettes** -> une pour chaque format de données (Les facettes personnalisées proposent aussi des facettes booléennes).   
 
@@ -766,8 +768,6 @@ On retrouve également différents **formats de facettes** -> une pour chaque fo
 - Quelle est la plus fréquente? Sélectionner cette valeur. Combien de cas correspondent à cette sélection?  
 - À quel *jour de la semaine* cette cause est-elle survenue le plus souvent?^[Clientèle / Blessée ou malade, Méfait volontaire, Nuisance involontaire / Méfait volontaire 781/ 5]   
 - Réinitialiser toutes les facettes.
-
-- Explorer les facettes personnalisées *Par mot* et *doublons* sur la colonne *Cause primaire*.
 
 **Éditer**  
 
@@ -866,7 +866,7 @@ Pour voir la syntaxe correspondant à chaque fonction de `transformations couran
 ## Exercice
 
 <div class = "box2">
-Transformer la variable *Ligne*
+Uniformiser et diviser le contenu de la variable *Ligne*
 </div>
 <div class = "box1">
 **Uniformiser le nom des lignes:**  
@@ -886,9 +886,7 @@ Transformer la variable *Ligne*
 
 - Cliquer ensuite directement sur `edit` sur une cellule de la colonne de *Ligne* -> remarquer la présence d'un espace, supprimer l'espace et fermer. 
 
-- Rafraichir la facette et observer l'impact. 
-
-- Remarquer l'impact de l'espace dans la facette. Ces espaces peuvent être supprimés grâce à la fonction: `Éditer les cellules -> Transformations courantes -> Supprimer les espaces de début et de fin`. 
+- Rafraichir la facette et observer l'impact - les espaces peuvent être supprimés grâce à la fonction: `Éditer les cellules -> Transformations courantes -> Supprimer les espaces de début et de fin`. 
 - Remplacer les couleurs de ligne par leur numéro directement dans la facette.   
 </div>
 
@@ -908,7 +906,7 @@ Transformer la variable *Ligne*
 </br>
 
 <div class = "box2">
-Diviser par les longueurs de champs la colonne `Numéro d'incident` pour en créer deux nouvelles:  
+Diviser par les longueurs de champs la colonne *Numéro d'incident* pour en créer deux nouvelles:  
   1. Une colonne contenant le premier caractère indiquant le type d'incident, soit T (train) ou S (service).  
   2. Une colonne contenant l'ensemble des caractères numériques indiquant le numéro d'incident.  
 </div>
@@ -932,8 +930,8 @@ Diviser par les longueurs de champs la colonne `Numéro d'incident` pour en cré
 ## Exercice   
 
 Nous souhaitons calculer la durée des incidents (nécessite l'utilisation de GREL). Pour ce faire nous créerons deux colonnes pour ensuite calculer la différence entre les deux:    
-- Transformation simple automatisée: Créer une nouvelle colonne fusionnant les colonnes: *Année civile*, *Mois calendrier*, *jours du mois* et *Heure de l'incident*.  
-- Transformation avancée GREL (peut être réalisée de façon automatisée): Créer une nouvelle colonne fusionnant les colonnes: *Année civile*, *Mois calendrier*, *jours du mois* et *Heure de l'incident*.  
+- **Transformation simple automatisée**: Créer une nouvelle colonne fusionnant les colonnes: *Année civile*, *Mois calendrier*, *jours du mois* et *Heure de l'incident*.  
+- **Transformation avancée GREL** (peut être réalisée de façon automatisée): Créer une nouvelle colonne fusionnant les colonnes: *Année civile*, *Mois calendrier*, *jours du mois* et *Heure de l'incident*.  
 
 </br>
 
