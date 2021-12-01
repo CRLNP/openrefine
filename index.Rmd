@@ -258,7 +258,7 @@ Permet d'appliquer les principes du [Tidydata](https://r4ds.had.co.nz/tidy-data.
 
 - Travail local donc pas d'environnement collaboratif. 
 
-- Les fichiers programmes se trouveront dans le dossier d'installation et les fichiers de projets dans le *workspace directory*.
+- Les fichiers programme se trouveront dans le dossier d'installation et les fichiers de projets dans le *workspace directory*.
 
 - OpenRefine ne modifie pas le fichier original, il travaille à partir d'une **copie en mémoire stockée en archives** dans le répertoire de travail.
 
@@ -1117,7 +1117,7 @@ Indices:
 
 ### Exemple - Fonction reverse()  
 
-Éditer les cellules -> Transformer -> `value.split("; ")[1].split(", ").reverse().join(" ") + " est le meilleur"` 
+Éditer les cellules -> Transformer -> `value.split("; ")[1].split(", ").reverse().join(" ") + " è fantastico!"` 
 
 ![](images/OR38.jpg)
 
